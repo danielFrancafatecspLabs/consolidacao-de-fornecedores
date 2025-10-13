@@ -1,0 +1,135 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+function SupplierRow({ s, highlight }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div
+      className="card"
+      key={s._id}
+      style={{
+        marginBottom: 12,
+        border: highlight ? "2px solid green" : "none",
+      }}
+    >
+      <div className="supplier-row">
+        <div className="supplier-name">
+          <div
+            className="expand"
+            onClick={() => setOpen(!open)}
+            style={{ fontSize: 18 }}
+          >
+            {open ? "▾" : "▸"}
+          </div>
+          <div>
+            <div style={{ fontWeight: 600 }}>{s.fornecedor}</div>
+            <div className="muted" style={{ fontSize: 12 }}>
+              {s.detalhes?.length || 0} entradas
+            </div>
+          </div>
+        </div>
+        <div className="supplier-total">
+          R${" "}
+          {Number(s.total).toLocaleString("pt-BR", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}
+        </div>
+      </div>
+      {open && s.detalhes && (
+        <div style={{ marginTop: 12 }}>
+          <table className="details-table">
+            <thead>
+              <tr>
+                <th>Perfil</th>
+                <th>Hora</th>
+                <th>H/H</th>
+                <th>Valor total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {s.detalhes.map((d, i) => (
+                <tr key={i}>
+                  <td>{d.perfil}</td>
+                  <td>{d.hora ?? "-"}</td>
+                  <td>{d.hh ?? "-"}</td>
+                  <td>
+                    R${" "}
+                    {Number(d.valor_total || 0).toLocaleString("pt-BR", {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+      {open && s.detalhes && (
+        <div style={{ marginTop: 12 }}>
+          <table className="details-table">
+            <thead>
+              <tr>
+                <th>Perfil</th>
+                <th>Hora</th>
+                <th>H/H</th>
+                <th>Qtde Recursos</th>
+                <th>Aloc (meses)</th>
+                <th>Valor total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {s.detalhes.map((d, i) => (
+                <tr key={i}>
+                  <td>{d.perfil}</td>
+                  <td>{d.hora ?? "-"}</td>
+                  <td>{d.hh ?? "-"}</td>
+                  <td>{d.qtde_recursos ?? "-"}</td>
+                  <td>{d.alocacao_meses ?? "-"}</td>
+                  <td>
+                    R${" "}
+                    {Number(d.valor_total || 0).toLocaleString("pt-BR", {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div style={{ marginTop: 8, fontSize: 12 }} className="muted">
+            Upload ID: {s.upload_id || "-"}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function ListView({ fornecedores, refresh }) {
+  const sortedFornecedores = fornecedores
+    .filter((f) => f.total !== null && f.total !== undefined && f.total > 0)
+    .sort((a, b) => a.total - b.total);
+
+  return (
+    <div>
+      <h2>Fornecedores</h2>
+
+      <div style={{ marginTop: 12 }}>
+        {sortedFornecedores.length === 0 && (
+          <div className="card empty">
+            Nenhum fornecedor cadastrado ainda. Faça um upload para começar.
+          </div>
+        )}
+        {sortedFornecedores.map((f, index) => (
+          <SupplierRow
+            key={f._id || f.fornecedor}
+            s={f}
+            highlight={index === 0}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
