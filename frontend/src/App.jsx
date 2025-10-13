@@ -19,7 +19,9 @@ export default function App() {
     setError(null);
     try {
       // use 127.0.0.1 to avoid potential hostname resolution/cors oddities
-  const res = await axios.get("https://consolidacao-de-fornecedores.onrender.com/fornecedores");
+      const res = await axios.get(
+        "https://consolidacao-de-fornecedores.onrender.com/fornecedores"
+      );
       setFornecedores(res.data || []);
       setRaw(res.data || null);
     } catch (err) {
