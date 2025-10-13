@@ -6,7 +6,6 @@ import time
 
 load_dotenv()
 MONGODB_URI = os.getenv("MONGODB_URI", "mongodb+srv://danielfrancaleite:consolidacaofornecedor@cluster0.ek2c8kp.mongodb.net/")
-MONGODB_DB = os.getenv("MONGODB_DB", "fornecedores_db")
 
 ## Não usar fallback local, sempre usar Atlas
 
