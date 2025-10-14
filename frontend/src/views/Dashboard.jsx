@@ -18,11 +18,14 @@ const Dashboard = ({ fornecedores }) => {
     .map((f) => ({
       name: f.fornecedor,
       total: f.total,
+      detalhes: f.detalhes || [],
     }));
 
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
   const bestSupplier = data.length > 0 ? data[0] : null;
+  const bestSupplierDetails =
+    bestSupplier && bestSupplier.detalhes ? bestSupplier.detalhes : [];
 
   return (
     <div className="dashboard">
@@ -33,9 +36,7 @@ const Dashboard = ({ fornecedores }) => {
           {bestSupplier ? (
             <>
               <strong>{bestSupplier.name}</strong> com custo-benefício de R${" "}
-              {Number(
-                bestSupplier.total / (bestSupplier.entries || 1)
-              ).toLocaleString("pt-BR", {
+              {Number(bestSupplier.total).toLocaleString("pt-BR", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
               })}
@@ -44,6 +45,46 @@ const Dashboard = ({ fornecedores }) => {
             <span>Nenhum fornecedor válido encontrado.</span>
           )}
         </div>
+        {/* Memória de cálculo do melhor fornecedor */}
+        {bestSupplierDetails.length > 0 && (
+          <div className="calculo-memoria" style={{ marginTop: 16 }}>
+            <h4>Memória de cálculo</h4>
+            <table className="details-table">
+              <thead>
+                <tr>
+                  <th>Perfil</th>
+                  <th>Horas</th>
+                  <th>H/H</th>
+                  <th>Qtde de Recursos</th>
+                  <th>Alocação (meses)</th>
+                  <th>Status</th>
+                  <th>Classificação</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {bestSupplierDetails.map((d, i) => (
+                  <tr key={i}>
+                    <td>{d.perfil ?? "-"}</td>
+                    <td>{d.hora ?? "-"}</td>
+                    <td>{d.hh ?? "-"}</td>
+                    <td>{d.qtde_recursos ?? "-"}</td>
+                    <td>{d.alocacao_meses ?? "-"}</td>
+                    <td>{d.status ?? "-"}</td>
+                    <td>{d.classificacao ?? "-"}</td>
+                    <td>
+                      R{" "}
+                      {Number(d.valor_total || 0).toLocaleString("pt-BR", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
       <div className="charts">
         <div className="chart">

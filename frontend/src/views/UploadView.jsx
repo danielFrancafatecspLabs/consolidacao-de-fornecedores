@@ -5,6 +5,8 @@ import * as XLSX from "xlsx";
 // Componentização da tabela para renderizar os dados processados
 function DataTable({ data, filters }) {
   const applyFilters = () => {
+    // Garante que data é array antes de filtrar
+    if (!Array.isArray(data)) return [];
     return data.filter((row) => {
       return Object.entries(filters).every(([key, value]) =>
         value ? row[key]?.toString().includes(value) : true
@@ -43,21 +45,27 @@ export default function UploadView({ onUpload }) {
   const [data, setData] = useState([]);
   const [filters, setFilters] = useState({});
   const [drag, setDrag] = useState(false);
+  const [loadingData, setLoadingData] = useState(true);
 
   useEffect(() => {
     // Fetch fornecedores from the backend
     const fetchFornecedores = async () => {
       try {
         const response = await axios.get("http://127.0.0.1:8001/fornecedores");
-        setData(response.data);
+        if (Array.isArray(response.data.data)) {
+          setData(response.data.data);
+        } else {
+          setData([]);
+        }
       } catch (error) {
         console.error("Erro ao buscar fornecedores:", error);
         alert(
           "Erro ao buscar fornecedores. Verifique o console para mais detalhes."
         );
+      } finally {
+        setLoadingData(false);
       }
     };
-
     fetchFornecedores();
   }, []);
 
@@ -192,7 +200,11 @@ export default function UploadView({ onUpload }) {
 
       <div>
         <h3>Dados Processados</h3>
-        <DataTable data={data} filters={filters} />
+        {loadingData ? (
+          <div>Carregando...</div>
+        ) : (
+          <DataTable data={data} filters={filters} />
+        )}
       </div>
     </div>
   );

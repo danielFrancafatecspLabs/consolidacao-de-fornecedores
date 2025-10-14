@@ -3,6 +3,7 @@ import axios from "axios";
 
 function SupplierRow({ s, highlight }) {
   const [open, setOpen] = useState(false);
+  const detalhes = Array.isArray(s.detalhes) ? s.detalhes : [];
   return (
     <div
       className="card"
@@ -24,7 +25,7 @@ function SupplierRow({ s, highlight }) {
           <div>
             <div style={{ fontWeight: 600 }}>{s.fornecedor}</div>
             <div className="muted" style={{ fontSize: 12 }}>
-              {s.detalhes?.length || 0} entradas
+              {detalhes.length} entradas
             </div>
           </div>
         </div>
@@ -36,57 +37,37 @@ function SupplierRow({ s, highlight }) {
           })}
         </div>
       </div>
-      {open && s.detalhes && (
+      {open && detalhes.length > 0 && (
         <div style={{ marginTop: 12 }}>
           <table className="details-table">
             <thead>
               <tr>
+                <th>Fornecedor</th>
                 <th>Perfil</th>
-                <th>Hora</th>
+                <th>Horas</th>
                 <th>H/H</th>
-                <th>Valor total</th>
+                <th>Alocação (meses)</th>
+                <th>Classificação</th>
+                <th>Total</th>
               </tr>
             </thead>
             <tbody>
-              {s.detalhes.map((d, i) => (
+              {detalhes.map((d, i) => (
                 <tr key={i}>
-                  <td>{d.perfil}</td>
-                  <td>{d.hora ?? "-"}</td>
-                  <td>{d.hh ?? "-"}</td>
+                  <td>{s.fornecedor}</td>
+                  <td>{d.perfil ?? "-"}</td>
                   <td>
-                    R${" "}
-                    {Number(d.valor_total || 0).toLocaleString("pt-BR", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
+                    {d.hora !== undefined && d.hora !== null
+                      ? Math.round(d.hora)
+                      : "-"}
                   </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-      {open && s.detalhes && (
-        <div style={{ marginTop: 12 }}>
-          <table className="details-table">
-            <thead>
-              <tr>
-                <th>Perfil</th>
-                <th>Hora</th>
-                <th>H/H</th>
-                <th>Qtde Recursos</th>
-                <th>Aloc (meses)</th>
-                <th>Valor total</th>
-              </tr>
-            </thead>
-            <tbody>
-              {s.detalhes.map((d, i) => (
-                <tr key={i}>
-                  <td>{d.perfil}</td>
-                  <td>{d.hora ?? "-"}</td>
-                  <td>{d.hh ?? "-"}</td>
-                  <td>{d.qtde_recursos ?? "-"}</td>
+                  <td>
+                    {d.hh !== undefined && d.hh !== null
+                      ? Math.round(d.hh)
+                      : "-"}
+                  </td>
                   <td>{d.alocacao_meses ?? "-"}</td>
+                  <td>{d.classificacao ?? "-"}</td>
                   <td>
                     R${" "}
                     {Number(d.valor_total || 0).toLocaleString("pt-BR", {

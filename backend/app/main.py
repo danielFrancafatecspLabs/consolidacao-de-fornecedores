@@ -99,6 +99,9 @@ def upload_file(file: UploadFile = File(...)) -> Response:
     print(f"DEBUG: upload start filename={file.filename}")
     try:
         contents = file.read()
+        # Se contents vier como str, converte para bytes
+        if isinstance(contents, str):
+            contents = contents.encode('utf-8')
         file_hash = calculate_file_hash(contents)
         print(f"DEBUG: file hash={file_hash}")
 
@@ -201,14 +204,33 @@ def list_fornecedores(skip: int = 0, limit: int = 20):
     try:
         max_limit = 20
         limit = min(limit, max_limit)
-        projection = {"fornecedor": 1, "total": 1}
-        logger.info(f"Iniciando consulta /fornecedores (skip={skip}, limit={limit})")
-        cursor = collection.find({}, projection).sort("fornecedor", 1).skip(skip).limit(limit)
+        pipeline = [
+            {
+                "$group": {
+                    "_id": {"fornecedor": {"$toLower": "$fornecedor"}},
+                    "total": {"$sum": "$total"},
+                    "detalhes": {"$push": "$detalhes"}
+                }
+            },
+            {"$sort": {"total": 1}},
+            {"$skip": skip},
+            {"$limit": limit}
+        ]
+        logger.info(f"Iniciando consulta /fornecedores agrupados (skip={skip}, limit={limit})")
+        cursor = list(collection.aggregate(pipeline))
         results = []
         for doc in cursor:
-            doc['_id'] = str(doc['_id'])
-            results.append(doc)
-        logger.info(f"Consulta /fornecedores finalizada. Retornados {len(results)} registros.")
+            fornecedor_nome = doc['_id']['fornecedor']
+            # Formata: primeira letra maiúscula, resto minúsculo
+            if fornecedor_nome:
+                fornecedor_nome = fornecedor_nome[0].upper() + fornecedor_nome[1:].lower()
+            detalhes = [item for sublist in doc.get('detalhes', []) for item in (sublist if isinstance(sublist, list) else [sublist])]
+            results.append({
+                "fornecedor": fornecedor_nome,
+                "total": doc.get("total", 0),
+                "detalhes": detalhes
+            })
+        logger.info(f"Consulta /fornecedores agrupados finalizada. Retornados {len(results)} registros.")
         return {
             "data": results,
             "skip": skip,
