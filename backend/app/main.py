@@ -56,8 +56,7 @@ except Exception:
 
 
 # Global exception handler to ensure responses always include CORS headers
-@app.exception_handler(Exception)
-async def global_exception_handler(request, exc):
+def global_exception_handler(request, exc):
     import traceback
     traceback.print_exc()
     body = json.dumps({"detail": "Internal server error"})
@@ -69,32 +68,20 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
-
+# Refactored middleware to handle synchronous responses
 @app.middleware("http")
 async def ensure_cors_and_safe_response(request, call_next):
-    """Middleware that ensures Access-Control-Allow-Origin is present for all responses
-    and catches unexpected exceptions so the browser doesn't get an opaque Network Error.
-    It prefers bson.json_util for serializing errors/payloads when available.
-    """
     try:
         response = await call_next(request)
-        # Ensure CORS header is always present
-        try:
-            response.headers["Access-Control-Allow-Origin"] = "*"
-        except Exception:
-            pass
+        response.headers["Access-Control-Allow-Origin"] = "*"
         return response
     except Exception as exc:
         import traceback
         traceback.print_exc()
-        # serialize error safely
-        try:
-            from bson import json_util as bson_json_util
-            body = bson_json_util.dumps({"detail": "Internal server error", "error": str(exc)})
-        except Exception:
-            body = json.dumps({"detail": "Internal server error", "error": str(exc)})
+        body = json.dumps({"detail": "Internal server error", "error": str(exc)})
         return Response(body, media_type='application/json', status_code=500, headers={"Access-Control-Allow-Origin": "*"})
 
 
@@ -104,21 +91,20 @@ def calculate_file_hash(contents):
 
 
 @app.post('/upload', response_class=Response)
-async def upload_file(file: UploadFile = File(...)) -> Response:
+def upload_file(file: UploadFile = File(...)) -> Response:
     if not file.filename.lower().endswith(('xlsx',)):
-        # return JSON Response explicitly to avoid FastAPI trying to encode HTTPException internals
         return Response(json.dumps({'detail': 'Apenas arquivos .xlsx'}), media_type='application/json', status_code=400, headers={"Access-Control-Allow-Origin": "*"})
 
     tmp_path = None
     print(f"DEBUG: upload start filename={file.filename}")
     try:
-        contents = await file.read()
+        contents = file.read()
         file_hash = calculate_file_hash(contents)
         print(f"DEBUG: file hash={file_hash}")
 
         # Verificar duplicidade no banco de dados
         uploads_col = db.get_collection('uploads')
-        existing_upload = await uploads_col.find_one({'file_hash': file_hash})
+        existing_upload = uploads_col.find_one({'file_hash': file_hash})
         if existing_upload:
             return Response(json.dumps({'detail': 'Arquivo já enviado anteriormente', 'upload_id': existing_upload['upload_id']}), media_type='application/json', status_code=400, headers={"Access-Control-Allow-Origin": "*"})
 
@@ -132,7 +118,7 @@ async def upload_file(file: UploadFile = File(...)) -> Response:
         except Exception as e:
             print(f"DEBUG: parse error: {e}")
             # Registrar erro de processamento
-            await uploads_col.insert_one({
+            uploads_col.insert_one({
                 'upload_id': str(uuid.uuid4()),
                 'filename': file.filename,
                 'file_hash': file_hash,
@@ -156,7 +142,7 @@ async def upload_file(file: UploadFile = File(...)) -> Response:
         if upload_doc['rows'] == 0:
             return Response(json.dumps({'detail': 'Arquivo não contém dados válidos'}), media_type='application/json', status_code=400, headers={"Access-Control-Allow-Origin": "*"})
 
-        await uploads_col.insert_one(upload_doc)
+        uploads_col.insert_one(upload_doc)
         print("DEBUG: upload_doc inserted")
 
         # Persistir cada fornecedor
@@ -170,7 +156,7 @@ async def upload_file(file: UploadFile = File(...)) -> Response:
                 'upload_id': upload_doc['upload_id']
             }
             try:
-                res = await collection.insert_one(doc)
+                res = collection.insert_one(doc)
                 print("DEBUG: inserted doc", i, res.inserted_id)
                 # keep only serializable values
                 inserted.append({'_id': str(res.inserted_id), 'fornecedor': doc['fornecedor'], 'total': doc['total']})
@@ -206,25 +192,38 @@ async def upload_file(file: UploadFile = File(...)) -> Response:
                 pass
 
 
+# Refactored list_fornecedores endpoint to use synchronous iteration
 @app.get('/fornecedores')
-async def list_fornecedores(project: str = Query(None), limit: int = Query(100)):
+def list_fornecedores(skip: int = 0, limit: int = 20):
+    import logging
+    logger = logging.getLogger("fornecedores_logger")
     collection = db.get_collection('fornecedores')
-    cursor = collection.find({}, sort=[('fornecedor', 1)]).limit(limit)
-    results = []
-    async for doc in cursor:
-        doc['_id'] = str(doc['_id'])
-        # Replace NaN and Infinity values
-        for key, value in doc.items():
-            if isinstance(value, float) and (math.isnan(value) or math.isinf(value)):
-                doc[key] = None if math.isnan(value) else float('1e308')
-        results.append(doc)
-    return results
+    try:
+        max_limit = 20
+        limit = min(limit, max_limit)
+        projection = {"fornecedor": 1, "total": 1}
+        logger.info(f"Iniciando consulta /fornecedores (skip={skip}, limit={limit})")
+        cursor = collection.find({}, projection).sort("fornecedor", 1).skip(skip).limit(limit)
+        results = []
+        for doc in cursor:
+            doc['_id'] = str(doc['_id'])
+            results.append(doc)
+        logger.info(f"Consulta /fornecedores finalizada. Retornados {len(results)} registros.")
+        return {
+            "data": results,
+            "skip": skip,
+            "limit": limit,
+            "count": len(results)
+        }
+    except Exception as e:
+        logger.error(f"Error in /fornecedores: {e}")
+        return {"error": str(e)}, 500
 
 
+# Refactored summary endpoint to use synchronous iteration
 @app.get('/summary')
-async def summary():
+def summary():
     col = db.get_collection('fornecedores')
-    # aggregate total per fornecedor
     pipeline = [
         { '$unwind': '$detalhes' },
         { '$group': { '_id': {'fornecedor':'$fornecedor','perfil':'$detalhes.perfil'}, 'total_valor': {'$sum': '$detalhes.valor_total'}, 'total_hh': {'$sum': '$detalhes.hora'} } },
@@ -233,8 +232,7 @@ async def summary():
     ]
     cursor = col.aggregate(pipeline)
     out = []
-    async for d in cursor:
-        # Replace NaN and Infinity values
+    for d in cursor:
         for key, value in d.items():
             if isinstance(value, float) and (math.isnan(value) or math.isinf(value)):
                 d[key] = None if math.isnan(value) else float('1e308')

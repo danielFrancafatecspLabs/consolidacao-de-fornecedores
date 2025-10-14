@@ -1,25 +1,3 @@
-import csv
-import logging
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-from pymongo import MongoClient
-from openpyxl import load_workbook
-from bson import ObjectId
-import pandas as pd
-from rapidfuzz import fuzz
-
-app = Flask(__name__)
-CORS(app)  # Habilita CORS para o aplicativo Flask
-
-# Configuração do MongoDB Atlas
-MONGO_URI = "mongodb+srv://danielfrancaleite:consolidacaofornecedor@cluster0.ek2c8kp.mongodb.net/"
-client = MongoClient(MONGO_URI)
-db = client["uploads"]
-collection = db["consolidacao-fornecedores"]
-
-# Configuração do logger
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-
 def normalize_data(data):
     # Mapear cabeçalhos divergentes
     header_mapping = {

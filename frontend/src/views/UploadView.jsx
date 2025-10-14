@@ -48,7 +48,7 @@ export default function UploadView({ onUpload }) {
     // Fetch fornecedores from the backend
     const fetchFornecedores = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/fornecedores");
+        const response = await axios.get("http://127.0.0.1:8001/fornecedores");
         setData(response.data);
       } catch (error) {
         console.error("Erro ao buscar fornecedores:", error);

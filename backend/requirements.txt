@@ -5,3 +5,7 @@ openpyxl==3.1.2
 motor==3.7.1
 pydantic==1.10.11
 python-dotenv==1.0.1
+<<<<<<< HEAD
+=======
+ # pymongo==4.5.0
+>>>>>>> c995290 (Corrige dependências do requirements.txt)
