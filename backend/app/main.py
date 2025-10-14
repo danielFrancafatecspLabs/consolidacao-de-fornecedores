@@ -202,8 +202,6 @@ def list_fornecedores(skip: int = 0, limit: int = 20):
     logger = logging.getLogger("fornecedores_logger")
     collection = db.get_collection('fornecedores')
     try:
-        max_limit = 20
-        limit = min(limit, max_limit)
         pipeline = [
             {
                 "$group": {
@@ -212,9 +210,7 @@ def list_fornecedores(skip: int = 0, limit: int = 20):
                     "detalhes": {"$push": "$detalhes"}
                 }
             },
-            {"$sort": {"total": 1}},
-            {"$skip": skip},
-            {"$limit": limit}
+            {"$sort": {"total": 1}}
         ]
         logger.info(f"Iniciando consulta /fornecedores agrupados (skip={skip}, limit={limit})")
         cursor = list(collection.aggregate(pipeline))
@@ -243,6 +239,37 @@ def list_fornecedores(skip: int = 0, limit: int = 20):
 
 
 # Refactored summary endpoint to use synchronous iteration
+
+# Endpoint para listar todos os perfis de todos os fornecedores
+@app.get('/perfis')
+def listar_perfis():
+    collection = db.get_collection('fornecedores')
+    pipeline = [
+        {"$unwind": "$detalhes"},
+        {
+            "$group": {
+                "_id": {
+                    "fornecedor": {"$toLower": "$fornecedor"},
+                    "perfil": "$detalhes.perfil"
+                },
+                "valor_total": {"$sum": {"$ifNull": ["$detalhes.valor_total", 0]}}
+            }
+        },
+        {"$sort": {"_id.fornecedor": 1, "_id.perfil": 1}}
+    ]
+    cursor = list(collection.aggregate(pipeline))
+    results = []
+    for doc in cursor:
+        fornecedor_nome = doc['_id']['fornecedor']
+        perfil_nome = doc['_id']['perfil']
+        if fornecedor_nome:
+            fornecedor_nome = fornecedor_nome[0].upper() + fornecedor_nome[1:].lower()
+        results.append({
+            "fornecedor": fornecedor_nome,
+            "perfil": perfil_nome,
+            "valor_total": doc.get("valor_total", 0)
+        })
+    return {"data": results, "count": len(results)}
 @app.get('/summary')
 def summary():
     col = db.get_collection('fornecedores')

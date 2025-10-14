@@ -32,6 +32,12 @@ export default function Sidebar({ view, setView }) {
           <FaList className="icon" /> Lista de Fornecedores
         </div>
         <div
+          className={`sidebar-item ${view === "listarPerfis" ? "active" : ""}`}
+          onClick={() => setView("listarPerfis")}
+        >
+          <FaList className="icon" /> Listar Perfis
+        </div>
+        <div
           className={`sidebar-item ${view === "dashboard" ? "active" : ""}`}
           onClick={() => setView("dashboard")}
         >

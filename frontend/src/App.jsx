@@ -3,6 +3,8 @@ import Sidebar from "./components/Sidebar";
 import UploadView from "./views/UploadView";
 import ListView from "./views/ListView";
 import Dashboard from "./views/Dashboard";
+import PerfisView from "./views/PerfisView";
+import ListarPerfisView from "./views/ListarPerfisView";
 import axios from "axios";
 
 export default function App() {
@@ -59,20 +61,6 @@ export default function App() {
             />
             <div className="muted">{filtered.length} encontrados</div>
           </div>
-          <div className="actions">
-            <button className="btn secondary" onClick={() => setView("upload")}>
-              Novo Upload
-            </button>
-            <button className="btn" onClick={fetchList}>
-              {loading ? "Carregando..." : "Atualizar"}
-            </button>
-            <button
-              className="btn secondary"
-              onClick={() => setShowDebug((s) => !s)}
-            >
-              {showDebug ? "Esconder debug" : "Mostrar debug"}
-            </button>
-          </div>
         </div>
 
         {error && (
@@ -94,6 +82,8 @@ export default function App() {
           <ListView fornecedores={filtered} refresh={fetchList} />
         )}
         {view === "dashboard" && <Dashboard fornecedores={fornecedores} />}
+        {view === "perfis" && <PerfisView fornecedores={fornecedores} />}
+        {view === "listarPerfis" && <ListarPerfisView />}
 
         {showDebug && (
           <div className="card" style={{ marginTop: 16 }}>
