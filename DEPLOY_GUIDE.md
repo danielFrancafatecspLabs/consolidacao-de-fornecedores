@@ -7,7 +7,19 @@
 - MongoDB Atlas (ou instância local)
 - Vercel (para deploy do frontend)
 
-## 2. Backend (API)
+## Variáveis de Ambiente
+
+### Backend (FastAPI)
+
+- `MONGODB_URI`: string de conexão do MongoDB Atlas (ex: `mongodb+srv://usuario:senha@cluster.mongodb.net/db?retryWrites=true&w=majority`)
+- (Opcional) `PORT`: porta do servidor (Render usa automaticamente a porta do ambiente)
+
+### Frontend (Vercel)
+
+- `VITE_API_URL`: URL pública do backend (ex: `https://seu-backend.onrender.com`)
+
+No Render, adicione as variáveis em **Environment > Add Environment Variable**.
+No Vercel, adicione em **Project Settings > Environment Variables**.
 
 ### Instalação
 
