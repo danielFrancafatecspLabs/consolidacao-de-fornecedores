@@ -1,3 +1,16 @@
+from flask import Flask, request, jsonify
+from openpyxl import load_workbook
+from fuzzywuzzy import fuzz
+import logging
+from pymongo import MongoClient
+
+app = Flask(__name__)
+
+# Conexão com o MongoDB
+client = MongoClient('mongodb://localhost:27017/')
+db = client['consolidacao_fornecedores']
+collection = db['fornecedores']
+
 def normalize_data(data):
     # Mapear cabeçalhos divergentes
     header_mapping = {

@@ -1,8 +1,21 @@
-from openpyxl import load_workbook
+import pandas as pd
 from typing import List, Dict
 import unicodedata
 import string
+import difflib
 
+def normalize_string(value: str) -> str:
+    """
+    Normalize a string by removing accents, punctuation, and extra spaces.
+    """
+    if not value:
+        return ""
+    # Remove accents
+    value = unicodedata.normalize('NFKD', value).encode('ASCII', 'ignore').decode('utf-8')
+    # Remove punctuation
+    value = value.translate(str.maketrans('', '', string.punctuation))
+    # Convert to lowercase and strip extra spaces
+    return value.strip().lower()
 
 def _find_col_index(headers, names):
     for i, h in enumerate(headers):
@@ -16,70 +29,158 @@ def _find_col_index(headers, names):
 
 
 def parse_fornecedores_from_xlsx(path: str) -> List[Dict]:
-    wb = load_workbook(filename=path, data_only=True)
+    print(f"[LOG] Iniciando parse_fornecedores_from_xlsx para arquivo: {path}")
+    # Sempre buscar a aba 'ANEXO 1 - Detalhes Técnicos'
+    xls = pd.ExcelFile(path)
     sheet_name = None
-    # Try to find sheet with name similar to 'ANEXO 1 - DETALHES TÉCNICOS' or 'Detalhes Técnicos'
-    for name in wb.sheetnames:
-        lname = name.lower()
-        if 'anexo' in lname and 'detal' in lname and 'técn' in lname:
+    for name in xls.sheet_names:
+        if 'anexo 1' in name.lower() and 'detalhes' in name.lower():
             sheet_name = name
             break
     if not sheet_name:
-        for name in wb.sheetnames:
-            if 'detal' in name.lower() and 'técn' in name.lower():
-                sheet_name = name
-                break
-    if not sheet_name:
-        # fallback exact match
-        if 'Detalhes Técnicos' in wb.sheetnames:
-            sheet_name = 'Detalhes Técnicos'
-    if not sheet_name:
-        raise ValueError('Sheet "Detalhes Técnicos" not found')
-
-    ws = wb[sheet_name]
-    rows = list(ws.iter_rows(values_only=True))
-    if not rows or len(rows) < 2:
+        print(f"[LOG] Aba 'ANEXO 1 - Detalhes Técnicos' não encontrada em {path}. Abas disponíveis: {xls.sheet_names}")
         return []
+    df = pd.read_excel(xls, sheet_name=sheet_name)
+    print(f"[LOG] DataFrame lido da aba '{sheet_name}'. Shape: {df.shape}")
+    df = df.dropna(how='all')
+    print(f"[LOG] DataFrame após dropna. Shape: {df.shape}")
+    def norm(s):
+        if s is None:
+            return ""
+        s = str(s)
+        s = unicodedata.normalize('NFKD', s).encode('ASCII', 'ignore').decode('utf-8')
+        return s.strip().lower()
+    def fuzzy_col(df, options):
+        cols_norm = [norm(c) for c in df.columns]
+        for opt in options:
+            opt_norm = norm(opt)
+            for idx, c in enumerate(cols_norm):
+                if opt_norm in c:
+                    return df.columns[idx]
+            matches = difflib.get_close_matches(opt_norm, cols_norm, n=1, cutoff=0.5)
+            if matches:
+                return df.columns[cols_norm.index(matches[0])]
+        return None
+    print(f"[LOG] Colunas detectadas: {list(df.columns)}")
+    col_fornecedor = fuzzy_col(df, ['fornecedor'])
+    col_perfil = fuzzy_col(df, ['perfil', 'descricao'])
+    col_valor = fuzzy_col(df, ['valor', 'total'])
+    col_hh = fuzzy_col(df, ['hh'])
+    col_hora = fuzzy_col(df, ['hora', 'horas'])
+    col_qtde = fuzzy_col(df, ['qde', 'quantidade'])
+    col_aloc = fuzzy_col(df, ['aloc', 'alocacao'])
+    print(f"[LOG] Colunas mapeadas: fornecedor={col_fornecedor}, perfil={col_perfil}, valor={col_valor}, hh={col_hh}, hora={col_hora}, qtde={col_qtde}, aloc={col_aloc}")
+    data = {}
+    print(f"[LOG] Iniciando processamento das linhas...")
+    for idx, row in enumerate(df.iterrows()):
+        i, row_data = row
+        print(f"[LOG] Processando linha {i}: {row_data.to_dict()}")
+        fornecedor = row_data.get(col_fornecedor) if col_fornecedor else None
+        perfil = row_data.get(col_perfil) if col_perfil else None
+        valor = row_data.get(col_valor) if col_valor else None
+        hh = row_data.get(col_hh) if col_hh else None
+        hora = row_data.get(col_hora) if col_hora else None
+        qtde = row_data.get(col_qtde) if col_qtde else None
+        aloc = row_data.get(col_aloc) if col_aloc else None
+        filled = [fornecedor, perfil, valor, hh, hora]
+        if sum(1 for f in filled if f not in [None, "", 0, "-"]) < 2:
+            print(f"[LOG] Linha {i} ignorada: menos de 2 campos essenciais preenchidos.")
+            continue
+        nome = norm(fornecedor) if fornecedor else norm(perfil)
+        if not nome:
+            print(f"[LOG] Linha {i} ignorada: nome vazio.")
+            continue
+        import math
+        def to_float(v):
+            if v is None or v == '' or (isinstance(v, float) and math.isnan(v)):
+                return 0.0
+            try:
+                if isinstance(v, str):
+                    v2 = v.replace('.', '').replace(',', '.')
+                    return float(v2)
+                return float(v)
+            except Exception:
+                print(f"[LOG] Erro ao converter valor para float: {v}")
+                return 0.0
 
-    headers = [str(h).strip() if h is not None else None for h in rows[0]]
-    # Normalize headers without enforcing required headers
-    headers = [normalize_string(str(h)) if h is not None else None for h in rows[0]]
+        def to_int(v):
+            f = to_float(v)
+            if f is None or (isinstance(f, float) and math.isnan(f)):
+                return 0
+            try:
+                return int(f)
+            except Exception:
+                return 0
 
-    # Replace empty headers with default names
-    for i, header in enumerate(headers):
-        if header is None or header.strip() == "":
-            headers[i] = f"coluna_{i+1}"
+        valor_f = to_float(valor)
+        hora_f = to_float(hora) if hora is not None else 0.0
+        hh_f = to_float(hh) if hh is not None else 0.0
+        qtde_i = to_int(qtde) if qtde is not None else 0
+        aloc_i = to_int(aloc) if aloc is not None else 0
+        detalhe = {
+            'perfil': perfil,
+            'hora': hora_f,
+            'hh': hh_f,
+            'qtde_recursos': qtde_i,
+            'alocacao_meses': aloc_i,
+            'valor_total': valor_f,
+        }
+        if nome not in data:
+            data[nome] = {
+                'fornecedor': fornecedor if fornecedor else perfil,
+                'total': 0.0,
+                'total_horas': 0.0,
+                'detalhes': []
+            }
+        data[nome]['total'] += valor_f
+        data[nome]['total_horas'] += hora_f if hora_f is not None else 0.0
+        data[nome]['detalhes'].append(detalhe)
+    print(f"[LOG] Fim do processamento. Total de fornecedores: {len(data)}")
+    return list(data.values())
 
     # tolerant mapping for required columns (including new ones)
-    idx_fornecedor = _find_col_index(headers, ['Fornecedor', 'fornecedor'])
+    idx_fornecedor = _find_col_index(headers, fornecedor_variants)
     idx_perfil = _find_col_index(headers, ['Perfil', 'perfil'])
     idx_hora = _find_col_index(headers, ['Hora', 'Horas', 'Horas Trabalhadas', 'horas'])
     idx_hh = _find_col_index(headers, ['H/H', 'H H', 'HH', 'h/h'])
-    idx_qtde = _find_col_index(headers, ['Qtde de Recursos', 'Quantidade de Recursos', 'Qtde', 'Quantidade', 'qtde'])
-    idx_aloc = _find_col_index(headers, ['Alocação (meses)', 'Alocação', 'Alocacao', 'Alocação meses', 'Alocacao (meses)'])
     idx_valor = _find_col_index(headers, ['Total', 'Valor total', 'Valor Total', 'Valor', 'Total (R$)'])
 
+    missing = []
+    if idx_fornecedor is None:
+        missing.append('Fornecedor')
+    if idx_perfil is None:
+        missing.append('Perfil')
+    if idx_hora is None:
+        missing.append('Horas')
+    if idx_hh is None:
+        missing.append('HH')
+    if idx_valor is None:
+        missing.append('Total')
+    if missing:
+        raise ValueError(f'Colunas obrigatórias não encontradas: {", ".join(missing)}')
+
     print("Headers:", headers)
-    print("First few rows:", rows[:5])
+    print("First few rows:", rows[header_row:header_row+5])
 
     data = {}
-    for row in rows[1:]:
+    # Processa apenas as linhas abaixo do cabeçalho
+    for row in rows[header_row+1:]:
         if all(cell is None for cell in row):
             continue
-
         fornecedor = row[idx_fornecedor] if idx_fornecedor is not None else None
         perfil = row[idx_perfil] if idx_perfil is not None else None
-        hora = row[idx_hora] if idx_hora is not None else None
-        hh = row[idx_hh] if idx_hh is not None else None
-        qtde = row[idx_qtde] if idx_qtde is not None else None
-        aloc = row[idx_aloc] if idx_aloc is not None else None
         valor = row[idx_valor] if idx_valor is not None else None
-
-        if fornecedor is None:
+        hh = row[idx_hh] if idx_hh is not None else None
+        hora = row[idx_hora] if idx_hora is not None else None
+        # Só processa se pelo menos dois campos essenciais estiverem preenchidos
+        filled = [fornecedor, perfil, valor, hh, hora]
+        if sum(1 for f in filled if f not in [None, "", 0]) < 2:
             continue
-        nome = str(fornecedor).strip()
-
-        # normalize numeric fields (handle comma decimal separators)
+        nome = normalize_string(fornecedor)
+        if not nome:
+            continue  # ignora linhas sem fornecedor
+        qtde = None
+        aloc = None
         def to_float(v):
             if v is None or v == '':
                 return 0.0
@@ -90,13 +191,11 @@ def parse_fornecedores_from_xlsx(path: str) -> List[Dict]:
                 return float(v)
             except Exception:
                 return 0.0
-
         valor_f = to_float(valor)
         hora_f = to_float(hora) if hora is not None else None
         hh_f = to_float(hh) if hh is not None else None
         qtde_i = int(to_float(qtde)) if qtde is not None and to_float(qtde) != 0 else None
         aloc_i = int(to_float(aloc)) if aloc is not None and to_float(aloc) != 0 else None
-
         detalhe = {
             'perfil': perfil,
             'hora': hora_f,
@@ -105,42 +204,16 @@ def parse_fornecedores_from_xlsx(path: str) -> List[Dict]:
             'alocacao_meses': aloc_i,
             'valor_total': valor_f,
         }
-
         if nome not in data:
             data[nome] = {
-                'fornecedor': nome,
+                'fornecedor': fornecedor,
                 'total': 0.0,
+                'total_horas': 0.0,
                 'detalhes': []
             }
-
         data[nome]['total'] += valor_f
+        data[nome]['total_horas'] += hora_f if hora_f is not None else 0.0
         data[nome]['detalhes'].append(detalhe)
-
-    # Find the row containing the relevant headers
-    header_row = None
-    for i, row in enumerate(rows):
-        if 'Fornecedor' in [str(cell).strip() for cell in row if cell]:
-            header_row = i
-            break
-
-    if header_row is None:
-        raise ValueError("Relevant headers not found in the sheet.")
-
-    # Use the identified header row
-    headers = [normalize_string(str(h)) if h is not None else None for h in rows[header_row]]
-
-    # Skip rows above the header row
-    rows = rows[header_row + 1:]
-
-    # Skip irrelevant rows by finding the first row with meaningful data
-    start_row = 0
-    for i, row in enumerate(rows):
-        if any(cell is not None for cell in row):
-            start_row = i
-            break
-
-    rows = rows[start_row:]
-
     return list(data.values())
 
 def normalize_string(value: str) -> str:
@@ -180,6 +253,7 @@ def validate_and_structure_data(data: List[Dict]) -> List[Dict]:
             structured_data.append({
                 'fornecedor': fornecedor,
                 'total': sum(d['valor_total'] for d in detalhes_validos),
+                'total_horas': sum(d['hora'] for d in detalhes_validos if d.get('hora') is not None),
                 'detalhes': detalhes_validos
             })
 
