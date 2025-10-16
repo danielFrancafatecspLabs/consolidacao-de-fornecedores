@@ -6,8 +6,7 @@ from app.parser import parse_fornecedores_from_xlsx
 # Diretórios de entrada
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 INPUT_DIRS = [
-    os.path.join(BASE_DIR, 'frontend', f'OneDrive_{i}_16-10-2025')
-    for i in range(5, 9)
+    os.path.join(BASE_DIR, 'frontend', 'OneDrive_9_16-10-2025')
 ]
 
 for input_dir in INPUT_DIRS:

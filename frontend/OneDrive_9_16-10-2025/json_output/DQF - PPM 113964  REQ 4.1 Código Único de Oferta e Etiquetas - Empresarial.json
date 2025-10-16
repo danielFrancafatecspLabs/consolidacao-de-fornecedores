@@ -1,0 +1,112 @@
+[
+  {
+    "fornecedor": "Engineering",
+    "total": 182112.80000000002,
+    "total_horas": 1165.0,
+    "detalhes": [
+      {
+        "perfil": "TECNOLOGIAS CORE - GERENCIAMENTO DE DELIVERY",
+        "hora": 85.0,
+        "hh": 156.32,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 13287.199999999999
+      },
+      {
+        "perfil": "TECNOLOGIAS CORE - LIDERANÇA TÉCNICA ",
+        "hora": 1080.0,
+        "hh": 156.32,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 168825.6
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 182112.80000000002,
+    "total_horas": 1165.0,
+    "detalhes": [
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 85.0,
+        "hh": 156.32,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 13287.199999999999
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 1080.0,
+        "hh": 156.32,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 168825.6
+      }
+    ]
+  }
+]

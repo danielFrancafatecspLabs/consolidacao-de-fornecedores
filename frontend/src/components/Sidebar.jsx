@@ -20,28 +20,10 @@ export default function Sidebar({ view, setView }) {
       </div>
       <nav>
         <div
-          className={`sidebar-item ${view === "upload" ? "active" : ""}`}
-          onClick={() => setView("upload")}
-        >
-          <FaUpload className="icon" /> Novo Upload
-        </div>
-        <div
           className={`sidebar-item ${view === "list" ? "active" : ""}`}
           onClick={() => setView("list")}
         >
           <FaList className="icon" /> Lista de Fornecedores
-        </div>
-        <div
-          className={`sidebar-item ${view === "listarPerfis" ? "active" : ""}`}
-          onClick={() => setView("listarPerfis")}
-        >
-          <FaList className="icon" /> Listar Perfis
-        </div>
-        <div
-          className={`sidebar-item ${view === "dashboard" ? "active" : ""}`}
-          onClick={() => setView("dashboard")}
-        >
-          <FaChartBar className="icon" /> Dashboard
         </div>
       </nav>
       <div style={{ flex: 1 }} />

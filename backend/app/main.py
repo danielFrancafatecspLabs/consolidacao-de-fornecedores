@@ -103,166 +103,43 @@ def calculate_file_hash(contents: bytes) -> str:
     """Calcula o hash SHA256 do conteúdo do arquivo."""
     return hashlib.sha256(contents).hexdigest()
 
+
+import difflib
 def normalize_supplier_name(name: str) -> str:
     """Normaliza o nome do fornecedor (Capitalize, evitando erros em nomes vazios)."""
     if not name:
         return ""
-    # Converte para minúsculas antes de capitalizar
-    return name.lower().capitalize()
+    name = name.strip().lower()
+    # Mapeamento manual
+    manual_map = {
+        'hitss': 'Hitss', 'hitts': 'Hitss',
+        'ntt data': 'Ntt Data', 'nttdata': 'Ntt Data', 'ntt..': 'Ntt Data', 'ntt': 'Ntt Data',
+        'nttdata': 'Ntt Data', 'ntt.': 'Ntt Data', 'ntt-data': 'Ntt Data',
+        'sysmap': 'Sysmap', 'mobileum': 'Mobileum', 'spread': 'Spread', 'amdocs': 'Amdocs',
+        'atos': 'Atos', 'oracle': 'Oracle', 'tqi': 'Tqi', 'mjv': 'Mjv', 'dxc': 'Dxc',
+        'engineering': 'Engineering', 'pca': 'Pca', 'arcade': 'Arcade', 'engdb': 'Engdb',
+        'csg': 'Csg', 'accenture': 'Accenture',
+    }
+    # Normaliza para remover espaços extras e pontuação
+    import string
+    name_norm = name.translate(str.maketrans('', '', string.punctuation)).replace(' ', '').lower()
+    for key in manual_map:
+        key_norm = key.translate(str.maketrans('', '', string.punctuation)).replace(' ', '').lower()
+        if name_norm == key_norm:
+            return manual_map[key]
+    # Agrupamento por substring
+    for key, val in manual_map.items():
+        if key in name:
+            return val
+    # Agrupamento por similaridade
+    choices = list(manual_map.keys())
+    match = difflib.get_close_matches(name, choices, n=1, cutoff=0.8)
+    if match:
+        return manual_map[match[0]]
+    return name.capitalize()
 
 
 # --- Endpoints da API ---
-
-@app.post('/upload-csv', response_class=Response, status_code=201)
-async def upload_xlsx(file: UploadFile = File(...)) -> Response:
-    """Processa o upload de um arquivo XLSX contendo dados de fornecedores."""
-    if not file.filename.lower().endswith(('xlsx',)):
-        raise HTTPException(
-            status_code=400, 
-            detail="Apenas arquivos .xlsx são permitidos."
-        )
-
-    tmp_path = None
-    logger.info(f"Upload iniciado: filename={file.filename}")
-    
-    try:
-        # Leitura assíncrona do conteúdo do arquivo (melhor para arquivos grandes)
-        contents = await file.read()
-        
-        # Garantindo que é bytes (embora `await file.read()` já retorne `bytes`)
-        if isinstance(contents, str):
-             contents = contents.encode('utf-8')
-             
-        file_hash = calculate_file_hash(contents)
-        logger.info(f"File hash: {file_hash}")
-
-        # --- Verificação de Duplicidade ---
-        uploads_col = db.get_collection('uploads')
-        existing_upload = uploads_col.find_one({'file_hash': file_hash})
-        if existing_upload:
-            upload_id = str(existing_upload.get('upload_id'))
-            raise HTTPException(
-                status_code=400, 
-                detail=f"Arquivo já enviado anteriormente com ID: {upload_id}",
-                # JSONResponse permite incluir dados adicionais no corpo do erro.
-                headers={"X-Upload-ID": upload_id} 
-            )
-
-        # --- Escrita do Arquivo Temporário ---
-        with tempfile.NamedTemporaryFile(delete=False, suffix='.xlsx') as tmp:
-            tmp.write(contents)
-            tmp_path = tmp.name
-        logger.info(f"Arquivo temporário escrito em: {tmp_path}")
-
-        # --- Parsing do Arquivo ---
-        try:
-            logger.info(f"Iniciando parsing do arquivo: {tmp_path}")
-            suppliers = parse_fornecedores_from_xlsx(tmp_path)
-            logger.info(f"Parsing concluído. Total de fornecedores extraídos: {len(suppliers)}")
-        except Exception as e:
-            logger.error(f"[ERRO DETALHADO] Falha ao processar o arquivo {file.filename}: {e}", exc_info=True)
-            print(f"[ERRO DETALHADO] Falha ao processar o arquivo {file.filename}: {e}")
-            # Registrar erro de processamento
-            uploads_col.insert_one({
-                'upload_id': str(uuid.uuid4()),
-                'filename': file.filename,
-                'file_hash': file_hash,
-                'timestamp': datetime.utcnow(),
-                'error': str(e),
-                'rows': 0
-            })
-            raise HTTPException(
-                status_code=400, 
-                detail=f"Erro ao processar o arquivo: {str(e)}"
-            )
-
-        logger.info(f"Fornecedores processados: {len(suppliers)}")
-        
-        # --- Validação de Dados ---
-        total_rows = sum(len(s.get('detalhes', [])) for s in suppliers)
-        if total_rows == 0:
-            raise HTTPException(
-                status_code=400, 
-                detail='Arquivo não contém dados válidos de fornecedores.'
-            )
-
-        # --- Persistência no Banco de Dados ---
-        upload_doc = {
-            'upload_id': str(uuid.uuid4()),
-            'filename': file.filename,
-            'file_hash': file_hash,
-            'timestamp': datetime.utcnow(),
-            'rows': total_rows
-        }
-
-        uploads_col.insert_one(upload_doc)
-        logger.info(f"Metadados do upload inseridos. ID: {upload_doc['upload_id']}")
-
-        collection = db.get_collection('fornecedores')
-        inserted_suppliers_info: List[Dict[str, Any]] = []
-        
-        # Preparar e inserir documentos de fornecedores
-        documents_to_insert = []
-        for s in suppliers:
-            documents_to_insert.append({
-                'fornecedor': s.get('fornecedor'),
-                'total': s.get('total'),
-                'detalhes': s.get('detalhes'),
-                'upload_id': upload_doc['upload_id']
-            })
-        
-        # Usar insert_many para melhor desempenho (bulk insert)
-        if documents_to_insert:
-            insert_result = collection.insert_many(documents_to_insert)
-            
-            # Coletar IDs inseridos e informações para a resposta
-            for doc, obj_id in zip(documents_to_insert, insert_result.inserted_ids):
-                # Apenas valores serializáveis são mantidos
-                inserted_suppliers_info.append({
-                    '_id': str(obj_id), 
-                    'fornecedor': doc['fornecedor'], 
-                    'total': doc['total']
-                })
-                
-            logger.info(f"Documentos de fornecedores inseridos: {len(inserted_suppliers_info)}")
-        else:
-            logger.warning("Nenhum fornecedor válido para inserção.")
-
-        # --- Construção da Resposta ---
-        payload = {
-            'upload': make_serializable(upload_doc), # Garante que o timestamp é string
-            'inserted_count': len(inserted_suppliers_info), 
-            'inserted': inserted_suppliers_info
-        }
-        
-        # Retorna o JSON serializado corretamente
-        json_bytes = safe_json_dumps(payload)
-        
-        # Usa StreamingResponse para evitar o jsonable_encoder do FastAPI e garantir CORS
-        return StreamingResponse(
-            iter([json_bytes]), 
-            media_type='application/json', 
-            status_code=201 # Resposta 201 Created para sucesso no upload
-        )
-
-    except HTTPException:
-        # Re-raise HTTPException para ser tratado pelo FastAPI (já inclui CORS)
-        raise
-    except Exception as e:
-        logger.error(f"Erro inesperado no upload: {e}", exc_info=True)
-        # Erro interno
-        raise HTTPException(
-            status_code=500, 
-            detail=f"Erro interno no servidor: {str(e)}"
-        )
-    finally:
-        # --- Limpeza do Arquivo Temporário ---
-        if tmp_path:
-            try:
-                os.remove(tmp_path)
-                logger.debug(f"Arquivo temporário removido: {tmp_path}")
-            except OSError as e:
-                logger.warning(f"Não foi possível remover o arquivo temporário {tmp_path}: {e}")
 
 
 @app.get('/fornecedores', response_model=Dict[str, Any])
@@ -297,45 +174,50 @@ async def list_fornecedores(
     ]
 
     try:
-        # O FastAPI é assíncrono, então as operações de I/O (MongoDB) devem ser
-        # executadas em um thread pool (`run_in_threadpool`) ou com drivers async (AIO/Motor).
-        # Assumindo que o `db` é síncrono, deixei como está, mas saiba que **bloqueia** o loop.
-        
-        # Consulta principal
         cursor = collection.aggregate(pipeline)
-        results = []
+        raw_results = []
         for doc in cursor:
             fornecedor_nome_lower = doc['_id']['fornecedor']
-            
-            # Normalização para a resposta (primeira letra maiúscula)
-            fornecedor_nome = normalize_supplier_name(fornecedor_nome_lower)
-            
-            # Achata a lista de detalhes
-            # doc['detalhes_list'] é uma lista de listas de detalhes (uma lista por documento original)
             detalhes = [
                 item 
                 for sublist in doc.get('detalhes_list', []) 
                 for item in (sublist if isinstance(sublist, list) else [sublist])
             ]
-
-            results.append({
-                "fornecedor": fornecedor_nome,
+            raw_results.append({
+                "fornecedor": fornecedor_nome_lower,
                 "total": doc.get("total", 0),
-                "detalhes": detalhes # Incluindo detalhes se necessário, mas pode ser pesado
+                "detalhes": detalhes
             })
-        
-        # Consulta de contagem total
-        count_cursor = list(collection.aggregate(count_pipeline))
-        total_count = count_cursor[0]['total_count'] if count_cursor else 0
-        
+        # Agrupamento final por nome normalizado
+        import unicodedata, string
+        def norm_nome(nome):
+            if not nome:
+                return ""
+            nome = unicodedata.normalize('NFKD', nome).encode('ASCII', 'ignore').decode('utf-8')
+            nome = nome.translate(str.maketrans('', '', string.punctuation)).replace(' ', '').lower()
+            # Mapeamento manual
+            manual_map = {
+                'hitss': 'Hitss', 'hitts': 'Hitss',
+                'nttdata': 'Ntt Data', 'nttdata': 'Ntt Data', 'ntt..': 'Ntt Data', 'ntt': 'Ntt Data', 'nttdata': 'Ntt Data', 'ntt.': 'Ntt Data', 'ntt-data': 'Ntt Data',
+            }
+            return manual_map.get(nome, nome.capitalize())
+
+        from collections import defaultdict
+        agrupados = defaultdict(lambda: {"fornecedor": "", "total": 0, "detalhes": []})
+        for item in raw_results:
+            nome = norm_nome(item["fornecedor"])
+            grupo = agrupados[nome]
+            grupo["fornecedor"] = nome
+            grupo["total"] += item["total"]
+            grupo["detalhes"].extend(item["detalhes"])
+        results = list(agrupados.values())
+        total_count = len(results)
         logger.info(f"Consulta /fornecedores. Registros retornados: {len(results)}. Total de grupos: {total_count}")
-        
-        # Usar JSONResponse com o make_serializable para garantir tipos BSON
         return JSONResponse({
             "data": make_serializable(results),
             "skip": skip,
             "limit": limit,
-            "count": total_count, # Contagem total de grupos, não apenas da página
+            "count": total_count,
         })
         
     except Exception as e:
@@ -382,87 +264,37 @@ async def listar_perfis():
         raise HTTPException(status_code=500, detail=f"Erro ao consultar perfis: {str(e)}")
 
 
-@app.get('/summary', response_model=List[Dict[str, Any]])
-async def summary():
-    """Retorna um resumo de fornecedores, agrupando perfis, total de valor e total de horas."""
-    col = db.get_collection('fornecedores')
-    
+
+
+
+@app.get('/fornecedores/horas', response_model=Dict[str, Any])
+async def fornecedores_horas():
+    """Retorna a soma total de horas por fornecedor."""
+    collection = db.get_collection('fornecedores')
     pipeline = [
-        { '$unwind': '$detalhes' },
-        { 
-            '$group': { 
-                '_id': {
-                    'fornecedor': {'$toLower': '$fornecedor'}, # Normaliza no grupo
-                    'perfil': '$detalhes.perfil'
-                }, 
-                'total_valor': {'$sum': {'$ifNull': ['$detalhes.valor_total', 0]}}, 
-                'total_hh': {'$sum': {'$ifNull': ['$detalhes.hora', 0]}} 
-            } 
+        {"$unwind": "$detalhes"},
+        {
+            "$group": {
+                "_id": {"fornecedor": {"$toLower": "$fornecedor"}},
+                "total_horas": {"$sum": {"$ifNull": ["$detalhes.hora", 0]}}
+            }
         },
-        { 
-            '$group': { 
-                '_id': '$_id.fornecedor', 
-                'perfis': { 
-                    '$push': { 
-                        'perfil': '$_id.perfil', 
-                        'total_valor': '$total_valor', 
-                        'total_hh': '$total_hh' 
-                    } 
-                }, 
-                'fornecedor_total': { '$sum': '$total_valor' } 
-            } 
-        },
-        { '$sort': { 'fornecedor_total': -1 } }
+        {"$sort": {"total_horas": -1}}
     ]
-    
+
     try:
-        cursor = col.aggregate(pipeline)
-        out = []
-        for d in cursor:
-            # Normalizar o nome do fornecedor no resultado final
-            fornecedor_nome = normalize_supplier_name(d['_id'])
-            
-            # Adicionar o nome do fornecedor normalizado e remover o _id
-            d['fornecedor'] = fornecedor_nome 
-            del d['_id']
-            
-            # Tratamento de NaN/Infinitos em floats (seu código original)
-            for key, value in d.items():
-                if isinstance(value, float) and (math.isnan(value) or math.isinf(value)):
-                    d[key] = None # Usar None para representar NaN/Infinito
+        cursor = collection.aggregate(pipeline)
+        results = []
+        for doc in cursor:
+            fornecedor_nome_lower = doc['_id']['fornecedor']
+            fornecedor_nome = normalize_supplier_name(fornecedor_nome_lower)
+            results.append({
+                "fornecedor": fornecedor_nome,
+                "total_horas": doc.get("total_horas", 0)
+            })
 
-            # Tratar NaN/Infinitos dentro da lista 'perfis'
-            for perfil in d.get('perfis', []):
-                for key in ['total_valor', 'total_hh']:
-                    value = perfil.get(key)
-                    if isinstance(value, float) and (math.isnan(value) or math.isinf(value)):
-                        perfil[key] = None
+        return JSONResponse({"data": make_serializable(results), "count": len(results)})
 
-            out.append(d)
-        
-        # Usar JSONResponse com make_serializable
-        return JSONResponse(make_serializable(out))
-        
     except Exception as e:
-        logger.error(f"Erro em /summary: {e}", exc_info=True)
-        raise HTTPException(status_code=500, detail=f"Erro ao gerar resumo: {str(e)}")
-
-
-@app.get('/ping', response_class=Response)
-async def ping():
-    """Endpoint simples de saúde."""
-    # O CORSMiddleware adiciona o cabeçalho automaticamente
-    return Response('pong', media_type='text/plain')
-
-
-@app.get('/whoami', response_model=Dict[str, str])
-async def whoami():
-    """Retorna informações do processo para depuração."""
-    import sys
-    info = {
-        'pid': str(os.getpid()),
-        'python_executable': sys.executable,
-        'cwd': os.getcwd(),
-    }
-    # JSONResponse garante Content-Type e serialização segura
-    return JSONResponse(info)
+        logger.error(f"Erro em /fornecedores/horas: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Erro ao consultar horas por fornecedor: {str(e)}")

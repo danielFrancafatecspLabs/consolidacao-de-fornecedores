@@ -6,8 +6,7 @@ from pymongo import MongoClient
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 JSON_DIRS = [
-    os.path.join(BASE_DIR, 'frontend', f'OneDrive_{i}_16-10-2025', 'json_output')
-    for i in range(5, 9)
+    os.path.join(BASE_DIR, 'frontend', 'OneDrive_9_16-10-2025', 'json_output')
 ]
 
 # Conexão MongoDB Atlas

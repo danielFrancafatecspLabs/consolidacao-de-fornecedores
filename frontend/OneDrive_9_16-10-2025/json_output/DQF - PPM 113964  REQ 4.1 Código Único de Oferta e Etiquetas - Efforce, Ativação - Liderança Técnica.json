@@ -1,0 +1,222 @@
+[
+  {
+    "fornecedor": "Spread",
+    "total": 153938.40000000002,
+    "total_horas": 1452.0,
+    "detalhes": [
+      {
+        "perfil": "ANÁLISE - SÊNIOR",
+        "hora": 1056.0,
+        "hh": 103.4,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 109190.40000000001
+      },
+      {
+        "perfil": "LIDERANÇA DE TESTES",
+        "hora": 396.0,
+        "hh": 113.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 44748.0
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 230163.807,
+    "total_horas": 2047.17,
+    "detalhes": [
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 1056.0,
+        "hh": 103.4,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 109190.40000000001
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 396.0,
+        "hh": 113.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 44748.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 132.0,
+        "hh": 96.4,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 12724.800000000001
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 463.17,
+        "hh": 137.1,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 63500.606999999996
+      }
+    ]
+  },
+  {
+    "fornecedor": "ITSHARE",
+    "total": 12724.800000000001,
+    "total_horas": 132.0,
+    "detalhes": [
+      {
+        "perfil": "Ambientes - Serviço Especializado de Ambientes",
+        "hora": 132.0,
+        "hh": 96.4,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 12724.800000000001
+      }
+    ]
+  },
+  {
+    "fornecedor": "Atos",
+    "total": 63500.606999999996,
+    "total_horas": 463.17,
+    "detalhes": [
+      {
+        "perfil": "CORE - SERVIÇO ESPECIALIZADO DE SISTEMAS",
+        "hora": 463.17,
+        "hh": 137.1,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 63500.606999999996
+      }
+    ]
+  }
+]

@@ -1,0 +1,64 @@
+[
+  {
+    "fornecedor": "Spread",
+    "total": 10541.88,
+    "total_horas": 97.61,
+    "detalhes": [
+      {
+        "perfil": "INTEGRAÇÃO - SERVIÇO ESPECIALIZADO DE DESENVOLVIMENTO DE PLATAFORMA DE API MANAGEMENT",
+        "hora": 97.61,
+        "hh": 108.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 10541.88
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 29966.760000000002,
+    "total_horas": 277.47,
+    "detalhes": [
+      {
+        "perfil": "INTEGRAÇÃO - SERVIÇO ESPECIALIZADO DE DESENVOLVIMENTO DE PLATAFORMA DE API MANAGEMENT",
+        "hora": 89.93,
+        "hh": 108.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 9712.44
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 187.54000000000002,
+        "hh": 216.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 20254.32
+      }
+    ]
+  }
+]

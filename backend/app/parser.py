@@ -86,8 +86,9 @@ def parse_fornecedores_from_xlsx(path: str) -> List[Dict]:
         if sum(1 for f in filled if f not in [None, "", 0, "-"]) < 2:
             print(f"[LOG] Linha {i} ignorada: menos de 2 campos essenciais preenchidos.")
             continue
-        nome = norm(fornecedor) if fornecedor else norm(perfil)
-        if not nome:
+        # Use o nome original do fornecedor ou perfil como chave
+        nome_original = fornecedor if fornecedor else perfil
+        if not nome_original:
             print(f"[LOG] Linha {i} ignorada: nome vazio.")
             continue
         import math
@@ -125,16 +126,17 @@ def parse_fornecedores_from_xlsx(path: str) -> List[Dict]:
             'alocacao_meses': aloc_i,
             'valor_total': valor_f,
         }
-        if nome not in data:
-            data[nome] = {
-                'fornecedor': fornecedor if fornecedor else perfil,
+        # Use nome_original como chave e valor do campo 'fornecedor'
+        if nome_original not in data:
+            data[nome_original] = {
+                'fornecedor': nome_original,
                 'total': 0.0,
                 'total_horas': 0.0,
                 'detalhes': []
             }
-        data[nome]['total'] += valor_f
-        data[nome]['total_horas'] += hora_f if hora_f is not None else 0.0
-        data[nome]['detalhes'].append(detalhe)
+        data[nome_original]['total'] += valor_f
+        data[nome_original]['total_horas'] += hora_f if hora_f is not None else 0.0
+        data[nome_original]['detalhes'].append(detalhe)
     print(f"[LOG] Fim do processamento. Total de fornecedores: {len(data)}")
     return list(data.values())
 
@@ -229,35 +231,75 @@ def normalize_string(value: str) -> str:
     # Convert to lowercase and strip extra spaces
     return value.strip().lower()
 
+
+
+# Mapeamento manual de variações para nome principal
+FORNECEDOR_MAP = {
+    'hitss': 'Hitss',
+    'hitts': 'Hitss',
+    'ntt data': 'Ntt Data',
+    'nttdata': 'Ntt Data',
+    'ntt..': 'Ntt Data',
+    'ntt': 'Ntt Data',
+    'sysmap': 'Sysmap',
+    'mobileum': 'Mobileum',
+    'spread': 'Spread',
+    'amdocs': 'Amdocs',
+    'atos': 'Atos',
+    'oracle': 'Oracle',
+    'tqi': 'Tqi',
+    'mjv': 'Mjv',
+    'dxc': 'Dxc',
+    'engineering': 'Engineering',
+    'pca': 'Pca',
+    'arcade': 'Arcade',
+    'engdb': 'Engdb',
+    'csg': 'Csg',
+    'accenture': 'Accenture',
+}
+
+def group_suppliers_by_manual_map(data: List[Dict]) -> List[Dict]:
+    from collections import defaultdict
+    agrupados = defaultdict(lambda: {'fornecedor': '', 'total': 0.0, 'total_horas': 0.0, 'detalhes': []})
+    for item in data:
+        nome_norm = normalize_string(item['fornecedor'])
+        nome_principal = FORNECEDOR_MAP.get(nome_norm, item['fornecedor'])
+        grupo = agrupados[nome_principal]
+        grupo['fornecedor'] = nome_principal
+        grupo['total'] += item.get('total', 0.0)
+        grupo['total_horas'] += item.get('total_horas', 0.0)
+        grupo['detalhes'].extend(item.get('detalhes', []))
+    return list(agrupados.values())
+
 def validate_and_structure_data(data: List[Dict]) -> List[Dict]:
     """
-    Valida, estrutura e normaliza os dados antes de inseri-los no banco de dados.
+    Valida, estrutura, normaliza e agrupa os dados antes de inseri-los no banco de dados.
     """
     structured_data = []
-
     for item in data:
-        # Validação de campos obrigatórios
-        fornecedor = normalize_string(item.get('fornecedor'))
-        if not fornecedor or not item.get('detalhes'):
+        fornecedor_raw = item.get('fornecedor')
+        fornecedor_norm = normalize_string(fornecedor_raw)
+        nome_principal = FORNECEDOR_MAP.get(fornecedor_norm, fornecedor_raw)
+        if not nome_principal or not item.get('detalhes'):
             continue
-
-        # Validação e estruturação dos detalhes
         detalhes_validos = []
         for detalhe in item['detalhes']:
             perfil = normalize_string(detalhe['perfil'])
             if perfil and detalhe['valor_total'] > 0:
                 detalhe['perfil'] = perfil
                 detalhes_validos.append(detalhe)
-
         if detalhes_validos:
             structured_data.append({
-                'fornecedor': fornecedor,
+                'fornecedor': nome_principal,
                 'total': sum(d['valor_total'] for d in detalhes_validos),
-                'total_horas': sum(d['hora'] for d in detalhes_validos if d.get('hora') is not None),
+                'total_horas': sum(
+                    d['hora'] for d in detalhes_validos
+                    if d.get('hora') not in [None, '', 0] and isinstance(d.get('hora'), (int, float)) and d.get('hora') > 0
+                ),
                 'detalhes': detalhes_validos
             })
-
-    return structured_data
+    # Agrupa fornecedores por mapeamento manual
+    return group_suppliers_by_manual_map(structured_data)
 
 # Atualize a função parse_fornecedores_from_xlsx para incluir validação e estruturação
 def parse_and_validate_fornecedores(path: str) -> List[Dict]:

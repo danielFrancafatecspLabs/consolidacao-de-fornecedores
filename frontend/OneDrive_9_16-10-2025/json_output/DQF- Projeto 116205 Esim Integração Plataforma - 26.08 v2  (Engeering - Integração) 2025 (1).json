@@ -1,0 +1,64 @@
+[
+  {
+    "fornecedor": "Engeering",
+    "total": 18531.36,
+    "total_horas": 144.0,
+    "detalhes": [
+      {
+        "perfil": "Criação de Canal e Código de Aplicação do Opera 360",
+        "hora": 144.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 1,
+        "valor_total": 18531.36
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 33795.36,
+    "total_horas": 432.0,
+    "detalhes": [
+      {
+        "perfil": NaN,
+        "hora": 144.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 1,
+        "valor_total": 7632.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 288.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 26163.36
+      }
+    ]
+  }
+]

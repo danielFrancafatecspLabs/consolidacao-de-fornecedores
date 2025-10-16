@@ -11,13 +11,8 @@ const UploadCSV = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/upload-csv",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
+        "http://localhost:8001/upload-csv",
+        formData
       );
       setData(response.data.data);
     } catch (error) {

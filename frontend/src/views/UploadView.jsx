@@ -1,4 +1,41 @@
 import React, { useState, useEffect } from "react";
+// Função para normalizar e agrupar fornecedores
+function normalizeFornecedor(nome) {
+  if (!nome) return "";
+  // Remove acentos
+  nome = nome.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  nome = nome.replace(/[.,\-\s]/g, "").toLowerCase();
+  const map = {
+    hitss: "Hitss",
+    hitts: "Hitss",
+    nttdata: "Ntt Data",
+    "ntt..": "Ntt Data",
+    ntt: "Ntt Data",
+    nttdata: "Ntt Data",
+    // Adicione outras variações conforme necessário
+  };
+  return map[nome] || nome.charAt(0).toUpperCase() + nome.slice(1);
+}
+
+function agruparFornecedores(lista) {
+  const agrupados = {};
+  lista.forEach((item) => {
+    const nome = normalizeFornecedor(item.fornecedor);
+    if (!agrupados[nome]) {
+      agrupados[nome] = { ...item };
+      if (typeof item.entradas === "number")
+        agrupados[nome].entradas = item.entradas;
+      if (typeof item.total === "number") agrupados[nome].total = item.total;
+    } else {
+      // Soma entradas e total se existirem
+      if (typeof item.entradas === "number")
+        agrupados[nome].entradas += item.entradas;
+      if (typeof item.total === "number") agrupados[nome].total += item.total;
+      // Se tiver outros campos para somar, some aqui
+    }
+  });
+  return Object.values(agrupados);
+}
 import axios from "axios";
 import * as XLSX from "xlsx";
 
@@ -53,7 +90,7 @@ export default function UploadView({ onUpload }) {
       try {
         const response = await axios.get("http://127.0.0.1:8001/fornecedores");
         if (Array.isArray(response.data.data)) {
-          setData(response.data.data);
+          setData(agruparFornecedores(response.data.data));
         } else {
           setData([]);
         }

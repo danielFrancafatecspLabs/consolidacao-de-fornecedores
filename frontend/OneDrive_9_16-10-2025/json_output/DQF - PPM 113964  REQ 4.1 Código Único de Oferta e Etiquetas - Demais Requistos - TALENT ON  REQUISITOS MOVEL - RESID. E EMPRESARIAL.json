@@ -1,0 +1,112 @@
+[
+  {
+    "fornecedor": "Spread",
+    "total": 142670.88,
+    "total_horas": 1232.0,
+    "detalhes": [
+      {
+        "perfil": "TESTES - LIDERANÇA DE TESTES",
+        "hora": 1056.0,
+        "hh": 113.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 119328.0
+      },
+      {
+        "perfil": "TESTES - AUTOMATIZAÇÃO E PERFORMANCE DE TESTES",
+        "hora": 176.0,
+        "hh": 132.63,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 23342.879999999997
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 142670.88,
+    "total_horas": 1232.0,
+    "detalhes": [
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 1056.0,
+        "hh": 113.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 119328.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 176.0,
+        "hh": 132.63,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 23342.879999999997
+      }
+    ]
+  }
+]

@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "./components/Sidebar";
-import UploadView from "./views/UploadView";
 import ListView from "./views/ListView";
-import Dashboard from "./views/Dashboard";
-import PerfisView from "./views/PerfisView";
-import ListarPerfisView from "./views/ListarPerfisView";
+import ResumoGastosView from "./views/ResumoGastosView";
 import axios from "axios";
 
 export default function App() {
-  const [view, setView] = useState("upload");
+  const [view, setView] = useState("list");
   const [fornecedores, setFornecedores] = useState([]);
   const [q, setQ] = useState("");
   const [loading, setLoading] = useState(false);
@@ -52,17 +49,6 @@ export default function App() {
     <div className="app-root">
       <Sidebar view={view} setView={setView} />
       <main className="main-area">
-        <div className="topbar">
-          <div className="search">
-            <input
-              placeholder="Buscar fornecedor..."
-              value={q}
-              onChange={(e) => setQ(e.target.value)}
-            />
-            <div className="muted">{filtered.length} encontrados</div>
-          </div>
-        </div>
-
         {error && (
           <div
             className="card"
@@ -77,13 +63,9 @@ export default function App() {
           </div>
         )}
 
-        {view === "upload" && <UploadView onUpload={fetchList} />}
-        {view === "list" && (
-          <ListView fornecedores={filtered} refresh={fetchList} />
-        )}
-        {view === "dashboard" && <Dashboard fornecedores={fornecedores} />}
-        {view === "perfis" && <PerfisView fornecedores={fornecedores} />}
-        {view === "listarPerfis" && <ListarPerfisView />}
+        {/* Apenas lista e resumo, sem upload */}
+        <ResumoGastosView fornecedores={fornecedores} />
+        <ListView fornecedores={filtered} refresh={fetchList} />
 
         {showDebug && (
           <div className="card" style={{ marginTop: 16 }}>

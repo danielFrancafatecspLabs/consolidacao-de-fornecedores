@@ -1,0 +1,64 @@
+[
+  {
+    "fornecedor": "ITShare",
+    "total": 42416.0,
+    "total_horas": 440.0,
+    "detalhes": [
+      {
+        "perfil": "Ambientes - Serviço Especializado de Ambientes - Móvel",
+        "hora": 440.0,
+        "hh": 96.4,
+        "qtde_recursos": 0,
+        "alocacao_meses": 2,
+        "valor_total": 42416.0
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 127248.0,
+    "total_horas": 1320.0,
+    "detalhes": [
+      {
+        "perfil": "Ambientes - Serviço Especializado de Ambientes - Residencia",
+        "hora": 440.0,
+        "hh": 96.4,
+        "qtde_recursos": 0,
+        "alocacao_meses": 2,
+        "valor_total": 42416.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 880.0,
+        "hh": 192.8,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 84832.0
+      }
+    ]
+  }
+]

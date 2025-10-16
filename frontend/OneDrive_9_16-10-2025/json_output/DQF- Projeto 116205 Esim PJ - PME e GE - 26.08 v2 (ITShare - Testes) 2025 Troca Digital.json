@@ -1,0 +1,64 @@
+[
+  {
+    "fornecedor": "ITShare",
+    "total": 33932.8,
+    "total_horas": 352.0,
+    "detalhes": [
+      {
+        "perfil": "Alocação de 1 recurso para atendimento de defeitos:\nRealizar as configurações dos ambientes do CR Troca Digital de eSIM - PME GE\nReplicar as configurações atuais e em projeto para o CR Troca Digital de eSIM - PME GE\nAtendimento de Sustentação para o CR Troca Digital de eSIM - PME GE",
+        "hora": 352.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 1,
+        "valor_total": 33932.8
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 33932.8,
+    "total_horas": 352.0,
+    "detalhes": [
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 352.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 33932.8
+      }
+    ]
+  }
+]
