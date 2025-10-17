@@ -5,7 +5,7 @@ import axios from "axios";
 function useHorasPorFornecedor() {
   const [horas, setHoras] = useState({});
   useEffect(() => {
-    axios.get("http://127.0.0.1:8001/fornecedores/horas").then((res) => {
+    axios.get("/fornecedores/horas").then((res) => {
       const map = {};
       (res.data.data || []).forEach((item) => {
         // Normaliza e agrupa variações

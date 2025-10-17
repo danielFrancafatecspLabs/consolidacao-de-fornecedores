@@ -88,7 +88,7 @@ export default function UploadView({ onUpload }) {
     // Fetch fornecedores from the backend
     const fetchFornecedores = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8001/fornecedores");
+        const response = await axios.get("/fornecedores");
         if (Array.isArray(response.data.data)) {
           setData(agruparFornecedores(response.data.data));
         } else {

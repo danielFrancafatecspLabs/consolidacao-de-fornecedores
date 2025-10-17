@@ -10,10 +10,7 @@ const UploadCSV = () => {
     formData.append("file", file);
 
     try {
-      const response = await axios.post(
-        "http://localhost:8001/upload-csv",
-        formData
-      );
+      const response = await axios.post("/upload-csv", formData);
       setData(response.data.data);
     } catch (error) {
       console.error("Error uploading file:", error);

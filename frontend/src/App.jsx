@@ -18,7 +18,7 @@ export default function App() {
     setError(null);
     try {
       // use 127.0.0.1 to avoid potential hostname resolution/cors oddities
-      const res = await axios.get("http://127.0.0.1:8001/fornecedores");
+      const res = await axios.get("/fornecedores");
       if (Array.isArray(res.data.data)) {
         setFornecedores(res.data.data);
       } else {
