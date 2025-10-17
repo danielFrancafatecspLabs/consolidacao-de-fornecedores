@@ -19,7 +19,7 @@ export default function App() {
     try {
       // Alterna entre dev e prod automaticamente
       const backendUrl =
-  (import.meta.env.VITE_API_URL || "http://localhost:3001") + "/fornecedores";
+  (import.meta.env.VITE_API_URL || "https://consolidacao-de-fornecedores-7.onrender.com") + "/fornecedores";
       const res = await axios.get(backendUrl);
       if (Array.isArray(res.data.data)) {
         setFornecedores(res.data.data);
