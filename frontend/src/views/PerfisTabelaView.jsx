@@ -1,4 +1,5 @@
 import React from "react";
+import normalizeFornecedorDisplay from "../utils/normalizeFornecedor";
 
 export default function PerfisTabelaView({ fornecedores }) {
   // Extrai todos os perfis válidos de todos os fornecedores
@@ -37,7 +38,7 @@ export default function PerfisTabelaView({ fornecedores }) {
           {perfis.map((p, i) => (
             <tr key={i}>
               <td>{p.perfil}</td>
-              <td>{p.fornecedor}</td>
+              <td>{normalizeFornecedorDisplay(p.fornecedor)}</td>
               <td>
                 {p.horas !== null && p.horas !== undefined
                   ? Math.round(p.horas)

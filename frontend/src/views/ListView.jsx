@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import normalizeFornecedorDisplay from "../utils/normalizeFornecedor";
 import axios from "axios";
 
 // Mapa único para normalização de fornecedores
@@ -49,7 +50,7 @@ function SupplierRow({ s, highlight }) {
             {open ? "▾" : "▸"}
           </div>
           <div>
-            <div style={{ fontWeight: 600 }}>{s.fornecedor}</div>
+            <div style={{ fontWeight: 600 }}>{normalizeFornecedorDisplay(s.fornecedor)}</div>
             <div className="muted" style={{ fontSize: 12 }}>
               {detalhes.length} entradas
             </div>
@@ -127,7 +128,7 @@ function SupplierRow({ s, highlight }) {
             <tbody>
               {detalhes.map((d, i) => (
                 <tr key={i}>
-                  <td>{d.Fornecedor ?? s.fornecedor ?? "-"}</td>
+                  <td>{d.Fornecedor ?? normalizeFornecedorDisplay(s.fornecedor) ?? "-"}</td>
                   <td>{d.Perfil ?? d.perfil ?? "-"}</td>
                   <td>
                     {d.Horas !== undefined && d.Horas !== null

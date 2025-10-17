@@ -38,6 +38,7 @@ function agruparFornecedores(lista) {
 }
 import axios from "axios";
 import * as XLSX from "xlsx";
+import normalizeFornecedorDisplay from "../utils/normalizeFornecedor";
 
 // Componentização da tabela para renderizar os dados processados
 function DataTable({ data, filters }) {
@@ -64,9 +65,11 @@ function DataTable({ data, filters }) {
           <tr key={index}>
             {Object.keys(row).map((key) => (
               <td key={key}>
-                {typeof row[key] === "object" && row[key] !== null
-                  ? JSON.stringify(row[key]) // Converte objetos em string
-                  : row[key]}
+          {typeof row[key] === "object" && row[key] !== null
+            ? JSON.stringify(row[key]) // Converte objetos em string
+            : key.toLowerCase().includes("forneced")
+            ? normalizeFornecedorDisplay(row[key])
+            : row[key]}
               </td>
             ))}
           </tr>

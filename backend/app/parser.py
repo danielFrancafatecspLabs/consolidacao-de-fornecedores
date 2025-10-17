@@ -89,9 +89,12 @@ def parse_fornecedores_from_xlsx(path: str) -> List[Dict]:
             continue
         # Use o nome original do fornecedor ou perfil como chave
         nome_original = fornecedor if fornecedor else perfil
-        if not nome_original:
-            print(f"[LOG] Linha {i} ignorada: nome vazio.")
-            continue
+        # Normalize cases where the name is empty, blank or a placeholder like '???'
+        if nome_original is None:
+            nome_original = ""
+        nome_str = str(nome_original).strip()
+        if nome_str == '' or nome_str == '???':
+            nome_original = UNIDENTIFIED_NAME
         import math
         def to_float(v):
             if v is None or v == '' or (isinstance(v, float) and math.isnan(v)):
@@ -259,9 +262,12 @@ FORNECEDOR_MAP = {
     'accenture': 'Accenture',
 }
 
+# Nome usado quando o fornecedor não é identificado ou o nome é inválido
+UNIDENTIFIED_NAME = 'Fornecedor não identificado'
+
 def group_suppliers_by_manual_map(data: List[Dict]) -> List[Dict]:
     from collections import defaultdict
-    agrupados = defaultdict(lambda: {'fornecedor': '', 'total': 0.0, 'total_horas': 0.0, 'detalhes': []})
+    agrupados = defaultdict(lambda: {'fornecedor': UNIDENTIFIED_NAME, 'total': 0.0, 'total_horas': 0.0, 'detalhes': []})
     for item in data:
         nome_raw = item.get('fornecedor')
         nome_principal = map_fornecedor(nome_raw)
@@ -312,8 +318,11 @@ def map_fornecedor(nome_raw: str) -> str:
     Falls back to the original raw name (stripped) if no mapping is found.
     """
     if not nome_raw:
-        return ""
+        return UNIDENTIFIED_NAME
     nome_norm = normalize_string(str(nome_raw))
+    # if normalized name is empty or just placeholders, treat as unidentified
+    if nome_norm == '' or nome_norm == '???':
+        return UNIDENTIFIED_NAME
     # Exact match first
     if nome_norm in FORNECEDOR_MAP:
         return FORNECEDOR_MAP[nome_norm]

@@ -1,4 +1,5 @@
 import React from "react";
+import normalizeFornecedorDisplay from "../utils/normalizeFornecedor";
 import {
   BarChart,
   Bar,
@@ -16,7 +17,7 @@ const Dashboard = ({ fornecedores }) => {
   const data = fornecedores
     .filter((f) => f && f.fornecedor && f.total)
     .map((f) => ({
-      name: f.fornecedor,
+      name: normalizeFornecedorDisplay(f.fornecedor),
       total: f.total,
       detalhes: f.detalhes || [],
     }));

@@ -14,12 +14,18 @@ export function parseAndValidateFornecedores(filePath) {
   const rows = xlsx.utils.sheet_to_json(sheet, { defval: '' });
   // Normalização básica: agrupa por fornecedor, soma total e total_horas
   const data = {};
+  const UNIDENTIFIED = 'Fornecedor não identificado';
+  function cleanName(v) {
+    if (v === null || v === undefined) return '';
+    const s = String(v).trim();
+    if (s === '' || s === '???') return UNIDENTIFIED;
+    return s;
+  }
+
   for (const row of rows) {
-    const fornecedor =
-      row['Fornecedor'] ||
-      row['fornecedor'] ||
-      row['FORNECEDOR'] ||
-      'Desconhecido';
+    const fornecedorRaw =
+      row['Fornecedor'] || row['fornecedor'] || row['FORNECEDOR'] || '';
+    const fornecedor = cleanName(fornecedorRaw) || UNIDENTIFIED;
     const valor = Number(row['Total']) || Number(row['Valor total']) || 0;
     const hora =
       Number(row['Horas']) ||

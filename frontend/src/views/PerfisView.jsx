@@ -1,4 +1,5 @@
 import React from "react";
+import normalizeFornecedorDisplay from "../utils/normalizeFornecedor";
 
 export default function PerfisView({ fornecedores }) {
   // Extrai todos os perfis de todos os fornecedores
@@ -77,7 +78,7 @@ export default function PerfisView({ fornecedores }) {
                     boxShadow: "0 2px 8px rgba(230,0,0,0.08)",
                   }}
                 >
-                  {p.fornecedor[0]?.toUpperCase()}
+                  {normalizeFornecedorDisplay(p.fornecedor)[0]?.toUpperCase()}
                 </span>
                 <div>
                   <div
@@ -87,7 +88,7 @@ export default function PerfisView({ fornecedores }) {
                       color: "var(--accent)",
                     }}
                   >
-                    {p.fornecedor}
+                    {normalizeFornecedorDisplay(p.fornecedor)}
                   </div>
                   <div
                     style={{
