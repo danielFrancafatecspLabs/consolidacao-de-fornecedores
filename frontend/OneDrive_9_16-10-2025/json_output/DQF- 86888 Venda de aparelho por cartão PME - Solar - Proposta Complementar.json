@@ -1,0 +1,879 @@
+[
+  {
+    "fornecedor": "NTTDATA",
+    "total": 56584.8,
+    "total_horas": 240.0,
+    "detalhes": [
+      {
+        "perfil": "SALESFORCE - SERVIÇO ESPECIALIZADO DE DESENVOLVIMENTO",
+        "hora": 240.0,
+        "hh": 235.77,
+        "qtde_recursos": 1,
+        "alocacao_meses": 3,
+        "valor_total": 56584.8
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 181800.8,
+    "total_horas": 1184.0,
+    "detalhes": [
+      {
+        "perfil": "SalesFORCE - SERVIÇO ESPECIALIZADO DE CONFIGURAÇÃO",
+        "hora": 64.0,
+        "hh": 191.5,
+        "qtde_recursos": 1,
+        "alocacao_meses": 3,
+        "valor_total": 12256.0
+      },
+      {
+        "perfil": "SALESFORCE - ANALISE DE CONFIGRAÇÃO - SENIOR",
+        "hora": 160.0,
+        "hh": 137.42,
+        "qtde_recursos": 1,
+        "alocacao_meses": 3,
+        "valor_total": 21987.199999999997
+      },
+      {
+        "perfil": "SALESFORCE - LIDERANÇA TÉCNICA",
+        "hora": 100.0,
+        "hh": 209.5,
+        "qtde_recursos": 1,
+        "alocacao_meses": 3,
+        "valor_total": 20950.0
+      },
+      {
+        "perfil": "SALESFORCE - ANALISE DE DESENVOLVIMENTO - JUNIOR",
+        "hora": 148.0,
+        "hh": 50.1,
+        "qtde_recursos": 1,
+        "alocacao_meses": 3,
+        "valor_total": 7414.8
+      },
+      {
+        "perfil": NaN,
+        "hora": 712.0,
+        "hh": 824.29,
+        "qtde_recursos": 5,
+        "alocacao_meses": 15,
+        "valor_total": 119192.8
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": 0,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": 0,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      }
+    ]
+  },
+  {
+    "fornecedor": "Fornecedor",
+    "total": 0.0,
+    "total_horas": 0.0,
+    "detalhes": [
+      {
+        "perfil": "Perfil",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": "Valor Unitário",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": "Descrição Item",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": "Descrição Item",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      }
+    ]
+  }
+]

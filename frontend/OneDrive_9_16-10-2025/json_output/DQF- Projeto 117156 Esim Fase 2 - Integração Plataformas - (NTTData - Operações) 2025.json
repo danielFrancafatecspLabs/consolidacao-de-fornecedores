@@ -1,0 +1,64 @@
+[
+  {
+    "fornecedor": "NTTData",
+    "total": 0.0,
+    "total_horas": 0.0,
+    "detalhes": [
+      {
+        "perfil": "SERVIÇO ESPECIALIZADO DE TRANSIÇÃO DE SERVIÇO para acompanhamento do projeto, reuniões técnicas, assim como s\ner facilitador para a implantação em produção, assegurando o comprimento dos requisitos Operacionais",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 12746.655999999999,
+    "total_horas": 94.28,
+    "detalhes": [
+      {
+        "perfil": NaN,
+        "hora": 47.14,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 1,
+        "valor_total": 6373.3279999999995
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 47.14,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 6373.3279999999995
+      }
+    ]
+  }
+]

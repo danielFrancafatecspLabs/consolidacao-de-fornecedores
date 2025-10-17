@@ -1,0 +1,463 @@
+[
+  {
+    "fornecedor": "Spread",
+    "total": 12408.0,
+    "total_horas": 120.0,
+    "detalhes": [
+      {
+        "perfil": "Validação dos cenários",
+        "hora": 120.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 101,
+        "valor_total": 12408.0
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 12408.0,
+    "total_horas": 120.0,
+    "detalhes": [
+      {
+        "perfil": NaN,
+        "hora": 120.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 12408.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": "\n",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      }
+    ]
+  },
+  {
+    "fornecedor": "Fornecedor",
+    "total": 0.0,
+    "total_horas": 0.0,
+    "detalhes": [
+      {
+        "perfil": "Descrição",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": "Descrição",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": "Descrição",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": "Descrição",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      }
+    ]
+  }
+]

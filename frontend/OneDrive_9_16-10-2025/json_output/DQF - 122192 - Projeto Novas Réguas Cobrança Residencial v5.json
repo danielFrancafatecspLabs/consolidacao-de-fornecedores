@@ -1,0 +1,985 @@
+[
+  {
+    "fornecedor": "DXC",
+    "total": 245183.46999991432,
+    "total_horas": 1755.8254798046,
+    "detalhes": [
+      {
+        "perfil": "CORE-GERENCIAMENTO DE DELIVERY",
+        "hora": 1461.306072758,
+        "hh": 139.64,
+        "qtde_recursos": 1,
+        "alocacao_meses": 9,
+        "valor_total": 204056.7799999271
+      },
+      {
+        "perfil": "CORE - GERENCIAMENTO DE DELIVERY ",
+        "hora": 294.5194070466,
+        "hh": 139.64,
+        "qtde_recursos": 1,
+        "alocacao_meses": 5,
+        "valor_total": 41126.68999998722
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 3200642.9732191944,
+    "total_horas": 36293.1933164576,
+    "detalhes": [
+      {
+        "perfil": "CORE-ANÁLISE FUNCIONAL ",
+        "hora": 1646.070567736,
+        "hh": 68.87,
+        "qtde_recursos": 1,
+        "alocacao_meses": 9,
+        "valor_total": 113364.87999997832
+      },
+      {
+        "perfil": "CORE-SERVIÇO ESPECIALIZADO DE DESENVOLVIMENTO FULL STACK",
+        "hora": 1286.409929078,
+        "hh": 105.75,
+        "qtde_recursos": 1,
+        "alocacao_meses": 9,
+        "valor_total": 136037.8499999985
+      },
+      {
+        "perfil": "CORE-ANÁLISE DE DESENVOLVIMENTO BACK-END-JÚNIOR ",
+        "hora": 1372.123940934,
+        "hh": 41.31,
+        "qtde_recursos": 1,
+        "alocacao_meses": 9,
+        "valor_total": 56682.439999983544
+      },
+      {
+        "perfil": "CORE-ANÁLISE DE DESENVOLVIMENTO BACK-END–PLENO ",
+        "hora": 1952.547020323,
+        "hh": 58.06,
+        "qtde_recursos": 1,
+        "alocacao_meses": 9,
+        "valor_total": 113364.87999995338
+      },
+      {
+        "perfil": "CORE-ANÁLISE DE DESENVOLVIMENTO BACK-END-SÊNIOR ",
+        "hora": 1888.36557468,
+        "hh": 90.05,
+        "qtde_recursos": 1,
+        "alocacao_meses": 9,
+        "valor_total": 170047.319999934
+      },
+      {
+        "perfil": "CORE-SERVIÇO ESPECIALIZADO DE SISTEMAS ",
+        "hora": 1499.535449735,
+        "hh": 113.4,
+        "qtde_recursos": 1,
+        "alocacao_meses": 9,
+        "valor_total": 170047.319999949
+      },
+      {
+        "perfil": "CORE-ANÁLISE DE DESENVOLVIMENTO-SÊNIOR ",
+        "hora": 2696.168067226,
+        "hh": 63.07,
+        "qtde_recursos": 1,
+        "alocacao_meses": 9,
+        "valor_total": 170047.3199999438
+      },
+      {
+        "perfil": NaN,
+        "hora": 13802.526622469999,
+        "hh": 0.0,
+        "qtde_recursos": 8,
+        "alocacao_meses": 0,
+        "valor_total": 1133648.7899996676
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 421.2530680862,
+        "hh": 0.0,
+        "qtde_recursos": 1,
+        "alocacao_meses": 0,
+        "valor_total": 75172.6099999824
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 1439.0930680862,
+        "hh": 0.0,
+        "qtde_recursos": 2,
+        "alocacao_meses": 0,
+        "valor_total": 162976.54080000002
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 125.9399,
+        "hh": 0.0,
+        "qtde_recursos": 1,
+        "alocacao_meses": 0,
+        "valor_total": 17606.39802
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 228.0,
+        "hh": 0.0,
+        "qtde_recursos": 1,
+        "alocacao_meses": 0,
+        "valor_total": 34824.72
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 1,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 380.0,
+        "hh": 0.0,
+        "qtde_recursos": 2,
+        "alocacao_meses": 0,
+        "valor_total": 35761.8
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 572.62,
+        "hh": 0.0,
+        "qtde_recursos": 3,
+        "alocacao_meses": 0,
+        "valor_total": 30842.314400000003
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": "CORE - SERVIÇO ESPECIALIZADO DE SISTEMAS ",
+        "hora": 1145.271075837,
+        "hh": 113.4,
+        "qtde_recursos": 1,
+        "alocacao_meses": 5,
+        "valor_total": 129873.7399999158
+      },
+      {
+        "perfil": "CORE - LIDERANÇA TÉCNICA",
+        "hora": 350.7392746913,
+        "hh": 129.6,
+        "qtde_recursos": 1,
+        "alocacao_meses": 5,
+        "valor_total": 45455.80999999248
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 1790.5297575749,
+        "hh": 0.0,
+        "qtde_recursos": 3,
+        "alocacao_meses": 0,
+        "valor_total": 216456.2399998955
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 1760.0,
+        "hh": 0.0,
+        "qtde_recursos": 1,
+        "alocacao_meses": 0,
+        "valor_total": 169664.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 1936.0,
+        "hh": 0.0,
+        "qtde_recursos": 1,
+        "alocacao_meses": 0,
+        "valor_total": 218768.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": 0,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": 0,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 1,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      }
+    ]
+  },
+  {
+    "fornecedor": "HITSS",
+    "total": 110934.4099999824,
+    "total_horas": 801.2530680862001,
+    "detalhes": [
+      {
+        "perfil": "Arquitetura Corporativa Senior",
+        "hora": 421.2530680862,
+        "hh": 178.45,
+        "qtde_recursos": 1,
+        "alocacao_meses": 3,
+        "valor_total": 75172.6099999824
+      },
+      {
+        "perfil": "Gerente de Projetos Sr",
+        "hora": 380.0,
+        "hh": 94.11,
+        "qtde_recursos": 1,
+        "alocacao_meses": 2,
+        "valor_total": 35761.8
+      }
+    ]
+  },
+  {
+    "fornecedor": " SPREAD",
+    "total": 162976.54080000002,
+    "total_horas": 1017.84,
+    "detalhes": [
+      {
+        "perfil": " TECNOLOGIAS CORE - LIDERANÇA TÉCNICA",
+        "hora": 1017.84,
+        "hh": 160.12,
+        "qtde_recursos": 1,
+        "alocacao_meses": 9,
+        "valor_total": 162976.54080000002
+      },
+      {
+        "perfil": " TECNOLOGIAS CORE - LIDERANÇA TÉCNICA",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 1,
+        "alocacao_meses": 2,
+        "valor_total": 0.0
+      }
+    ]
+  },
+  {
+    "fornecedor": " Hitss",
+    "total": 58475.11802,
+    "total_horas": 393.93989999999997,
+    "detalhes": [
+      {
+        "perfil": " SERVIÇO ESPECIALIZADO DE SISTEMAS ",
+        "hora": 125.9399,
+        "hh": 139.8,
+        "qtde_recursos": 1,
+        "alocacao_meses": 1,
+        "valor_total": 17606.39802
+      },
+      {
+        "perfil": " Pentest de Sistemas/Apps",
+        "hora": 228.0,
+        "hh": 152.74,
+        "qtde_recursos": 1,
+        "alocacao_meses": 1,
+        "valor_total": 34824.72
+      },
+      {
+        "perfil": " Arquiteto de Segurança",
+        "hora": 40.0,
+        "hh": 151.1,
+        "qtde_recursos": 1,
+        "alocacao_meses": 1,
+        "valor_total": 6044.0
+      }
+    ]
+  },
+  {
+    "fornecedor": "SPREAD",
+    "total": 249610.3144,
+    "total_horas": 2128.62,
+    "detalhes": [
+      {
+        "perfil": " TECNOLOGIAS CORE - LIDERANÇA TÉCNICA",
+        "hora": 192.62,
+        "hh": 160.12,
+        "qtde_recursos": 1,
+        "alocacao_meses": 2,
+        "valor_total": 30842.314400000003
+      },
+      {
+        "perfil": " LIDERANÇA DE TESTES",
+        "hora": 1936.0,
+        "hh": 113.0,
+        "qtde_recursos": 1,
+        "alocacao_meses": 10,
+        "valor_total": 218768.0
+      }
+    ]
+  },
+  {
+    "fornecedor": "Fornecedor",
+    "total": 0.0,
+    "total_horas": 0.0,
+    "detalhes": [
+      {
+        "perfil": "Perfil",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": "Valor Unitário",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": "Descrição Item",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": "Descrição Item",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      }
+    ]
+  },
+  {
+    "fornecedor": "ITSHARE",
+    "total": 169664.0,
+    "total_horas": 1760.0,
+    "detalhes": [
+      {
+        "perfil": "Ambientes-Serviço especializado de Ambientes",
+        "hora": 1760.0,
+        "hh": 96.4,
+        "qtde_recursos": 1,
+        "alocacao_meses": 10,
+        "valor_total": 169664.0
+      }
+    ]
+  },
+  {
+    "fornecedor": " ",
+    "total": 0.0,
+    "total_horas": 0.0,
+    "detalhes": [
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": " ",
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 1,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      }
+    ]
+  }
+]

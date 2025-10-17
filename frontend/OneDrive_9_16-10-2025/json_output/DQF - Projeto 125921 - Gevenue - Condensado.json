@@ -1,0 +1,157 @@
+[
+  {
+    "fornecedor": "Sysmap",
+    "total": 21772.8,
+    "total_horas": 168.0,
+    "detalhes": [
+      {
+        "perfil": "TECNOLOGIAS CORE - LIDERANÇA TÉCNICA",
+        "hora": 168.0,
+        "hh": 129.6,
+        "qtde_recursos": 1,
+        "alocacao_meses": 1,
+        "valor_total": 21772.8
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 0.0,
+    "total_horas": 0.0,
+    "detalhes": [
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 1,
+        "alocacao_meses": 1,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 3,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 1,
+        "alocacao_meses": 3,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 1,
+        "alocacao_meses": 11,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      }
+    ]
+  },
+  {
+    "fornecedor": "EngDB",
+    "total": 5710.3993815,
+    "total_horas": 40.14905,
+    "detalhes": [
+      {
+        "perfil": "TECNOLOGIAS CORE",
+        "hora": 40.14905,
+        "hh": 142.23,
+        "qtde_recursos": 1,
+        "alocacao_meses": 1,
+        "valor_total": 5710.3993815
+      }
+    ]
+  },
+  {
+    "fornecedor": "Spread",
+    "total": 9004.32,
+    "total_horas": 52.0,
+    "detalhes": [
+      {
+        "perfil": "TECNOLOGIAS CORE - Gerenciamento de Delivery",
+        "hora": 52.0,
+        "hh": 173.16,
+        "qtde_recursos": 1,
+        "alocacao_meses": 1,
+        "valor_total": 9004.32
+      }
+    ]
+  },
+  {
+    "fornecedor": "Hitss",
+    "total": 9245.366399999999,
+    "total_horas": 98.24,
+    "detalhes": [
+      {
+        "perfil": "Gerente de Projetos Sr",
+        "hora": 98.24,
+        "hh": 94.11,
+        "qtde_recursos": 1,
+        "alocacao_meses": 2,
+        "valor_total": 9245.366399999999
+      }
+    ]
+  }
+]

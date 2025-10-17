@@ -1,0 +1,64 @@
+[
+  {
+    "fornecedor": "Spread",
+    "total": 7619.04,
+    "total_horas": 44.0,
+    "detalhes": [
+      {
+        "perfil": "TECNOLOGIAS CORE - Gerenciamento de Delivery",
+        "hora": 44.0,
+        "hh": 173.16,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 7619.04
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 102378.71600000001,
+    "total_horas": 641.3,
+    "detalhes": [
+      {
+        "perfil": "TECNOLOGIAS CORE - ANÁLISE DE DESENVOLVIMENTO - SÊNIOR",
+        "hora": 44.0,
+        "hh": 115.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 5060.0
+      },
+      {
+        "perfil": "TECNOLOGIAS CORE - ANÁLISE DE DESENVOLVIMENTO BACK-END - SÊNIOR",
+        "hora": 176.0,
+        "hh": 168.9,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 29726.4
+      },
+      {
+        "perfil": "TECNOLOGIAS CORE - LIDERANÇA TÉCNICA",
+        "hora": 78.65,
+        "hh": 160.12,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 12593.438000000002
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 342.65,
+        "hh": 617.18,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 54998.878000000004
+      }
+    ]
+  }
+]

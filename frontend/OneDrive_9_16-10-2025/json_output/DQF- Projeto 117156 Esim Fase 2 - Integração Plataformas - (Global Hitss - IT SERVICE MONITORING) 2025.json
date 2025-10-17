@@ -1,0 +1,64 @@
+[
+  {
+    "fornecedor": "Global Hitss",
+    "total": 27864.6799,
+    "total_horas": 209.21,
+    "detalhes": [
+      {
+        "perfil": "Serviço especializado na implementação do monitoramento fim a fim da solução, participação das reuniões técnicas, assim como acompanhar as implantações nos ambientes não produtivos e produtivos, desenvolvimento de dashboards e integração com esteira de AIOps para geração de alertas proativos.",
+        "hora": 209.21,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 1,
+        "valor_total": 27864.6799
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 27864.6799,
+    "total_horas": 209.21,
+    "detalhes": [
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 209.21,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 27864.6799
+      }
+    ]
+  }
+]

@@ -1,0 +1,64 @@
+[
+  {
+    "fornecedor": "Sysmap",
+    "total": 13903.283400000002,
+    "total_horas": 78.79,
+    "detalhes": [
+      {
+        "perfil": "ANÁLISE DE DESENVOLVIMENTO FULL STACK",
+        "hora": 78.79,
+        "hh": 176.46,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 13903.283400000002
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 13903.283400000002,
+    "total_horas": 78.79,
+    "detalhes": [
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 78.79,
+        "hh": 176.46,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 13903.283400000002
+      }
+    ]
+  }
+]

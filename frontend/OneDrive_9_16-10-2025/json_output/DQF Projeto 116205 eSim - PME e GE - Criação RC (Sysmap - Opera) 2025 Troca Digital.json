@@ -1,0 +1,64 @@
+[
+  {
+    "fornecedor": "SYSMAP",
+    "total": 248247.995403,
+    "total_horas": 1406.82305,
+    "detalhes": [
+      {
+        "perfil": "Serviços de desenvolvimento de sistemas",
+        "hora": 1406.82305,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 1,
+        "valor_total": 248247.995403
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 248247.995403,
+    "total_horas": 1406.82305,
+    "detalhes": [
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 1406.82305,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 248247.995403
+      }
+    ]
+  }
+]

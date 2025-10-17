@@ -1,0 +1,64 @@
+[
+  {
+    "fornecedor": "Sysmap",
+    "total": 68862.3,
+    "total_horas": 353.14,
+    "detalhes": [
+      {
+        "perfil": "LIDERANÇA TÉCNICA",
+        "hora": 353.14,
+        "hh": 195.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 68862.3
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 390218.22,
+    "total_horas": 2080.86,
+    "detalhes": [
+      {
+        "perfil": "ANÁLISE DE DESENVOLVIMENTO - SÊNIOR",
+        "hora": 863.86,
+        "hh": 186.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 160677.96
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 1217.0,
+        "hh": 381.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 229540.26
+      }
+    ]
+  }
+]

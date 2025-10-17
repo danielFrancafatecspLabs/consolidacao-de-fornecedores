@@ -1,0 +1,64 @@
+[
+  {
+    "fornecedor": "POWER STAFF ",
+    "total": 357484.3402,
+    "total_horas": 2599.13,
+    "detalhes": [
+      {
+        "perfil": "CRM - ANÁLISE DE DESENVOLVIMENTO – SÊNIOR",
+        "hora": 2599.13,
+        "hh": 137.54,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 357484.3402
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 357484.3402,
+    "total_horas": 2599.13,
+    "detalhes": [
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 2599.13,
+        "hh": 137.54,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 357484.3402
+      }
+    ]
+  }
+]

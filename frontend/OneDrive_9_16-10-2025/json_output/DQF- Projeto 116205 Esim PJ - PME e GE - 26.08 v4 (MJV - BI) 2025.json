@@ -1,0 +1,64 @@
+[
+  {
+    "fornecedor": "MJV",
+    "total": 177409.69999999998,
+    "total_horas": 1142.0,
+    "detalhes": [
+      {
+        "perfil": "\"-Adequação das tabelas do Ciclo de Vida, Dimensão Assinante, Marcação do SimCard, Inclusão do Tipo do SimCard, E-sim, Fisico, Marcação do Ponto de Venda e Canal para Assinantes PJ\n- Extração de dados do CPC\n- Criação de Fundações para E-sim no Data Warehouse\n- Fato de Ativação de Symcards e Canais de Vendas\n- Criação de relatórios para Canal e Vendas e Esim.",
+        "hora": 1142.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 1,
+        "valor_total": 177409.69999999998
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 224540.781,
+    "total_horas": 1425.6999999999998,
+    "detalhes": [
+      {
+        "perfil": NaN,
+        "hora": 141.85,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 23565.5405
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 1283.85,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 200975.24049999999
+      }
+    ]
+  }
+]

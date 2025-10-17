@@ -1,0 +1,64 @@
+[
+  {
+    "fornecedor": "SYSMAP",
+    "total": 31056.960000000003,
+    "total_horas": 176.0,
+    "detalhes": [
+      {
+        "perfil": "O escopo dessa proposta é a prestação de serviços especializados para o projeto 106067 / 116205: eSIM PJ \nFase 2 - OMS1181c - Troca Digital - v1.",
+        "hora": 176.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 1,
+        "valor_total": 31056.960000000003
+      }
+    ]
+  },
+  {
+    "fornecedor": NaN,
+    "total": 167914.56,
+    "total_horas": 1232.0,
+    "detalhes": [
+      {
+        "perfil": NaN,
+        "hora": 528.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 68428.8
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 0.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 0.0
+      },
+      {
+        "perfil": NaN,
+        "hora": 704.0,
+        "hh": 0.0,
+        "qtde_recursos": 0,
+        "alocacao_meses": 0,
+        "valor_total": 99485.76000000001
+      }
+    ]
+  }
+]
