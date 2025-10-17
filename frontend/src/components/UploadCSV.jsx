@@ -10,7 +10,9 @@ const UploadCSV = () => {
     formData.append("file", file);
 
     try {
-      const response = await axios.post("/upload-csv", formData);
+      const backendUrl =
+        "https://consolidacao-de-fornecedores-7.onrender.com/upload-csv";
+      const response = await axios.post(backendUrl, formData);
       setData(response.data.data);
     } catch (error) {
       console.error("Error uploading file:", error);

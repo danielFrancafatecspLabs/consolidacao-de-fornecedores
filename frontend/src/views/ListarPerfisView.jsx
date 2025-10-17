@@ -6,7 +6,9 @@ const ListarPerfisView = () => {
   const [q, setQ] = useState("");
 
   useEffect(() => {
-    fetch("/fornecedores")
+    const backendUrl =
+      "https://consolidacao-de-fornecedores-7.onrender.com/fornecedores";
+    fetch(backendUrl)
       .then((res) => res.json())
       .then((result) => {
         setData(result.data || []);

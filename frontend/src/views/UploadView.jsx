@@ -88,7 +88,9 @@ export default function UploadView({ onUpload }) {
     // Fetch fornecedores from the backend
     const fetchFornecedores = async () => {
       try {
-        const response = await axios.get("/fornecedores");
+        const backendUrl =
+          "https://consolidacao-de-fornecedores-7.onrender.com/fornecedores";
+        const response = await axios.get(backendUrl);
         if (Array.isArray(response.data.data)) {
           setData(agruparFornecedores(response.data.data));
         } else {

@@ -5,7 +5,9 @@ import axios from "axios";
 function useHorasPorFornecedor() {
   const [horas, setHoras] = useState({});
   useEffect(() => {
-    axios.get("/fornecedores/horas").then((res) => {
+    const backendUrl =
+      "https://consolidacao-de-fornecedores-7.onrender.com/fornecedores/horas";
+    axios.get(backendUrl).then((res) => {
       const map = {};
       (res.data.data || []).forEach((item) => {
         // Normaliza e agrupa variações
