@@ -40,11 +40,34 @@ export async function getFornecedores(req, res) {
     // Agrupa fornecedores por nome normalizado
     const map = {};
     const manualMap = {
+      // HITSS
       hitss: 'hitss',
       hitts: 'hitss',
       globalhitss: 'hitss',
+      // NTTDATA
       nttdata: 'nttdata',
       ntt: 'nttdata',
+      'ntt..': 'nttdata',
+      // MJV
+      mjv: 'mjv',
+      mjvtechnologyinnovation: 'mjv',
+      mjvsolucoemtecnologialtda: 'mjv',
+      mjvtecnologiaeinovacao: 'mjv',
+      mjvsolucoemtecnologia: 'mjv',
+      mjvsolucoesemtecnologialtda: 'mjv',
+      mjvsolucoesemtecnologia: 'mjv',
+      'mjv technology & innovation': 'mjv',
+      'mjv soluções em tecnologia ltda': 'mjv',
+      // ATOS
+      atos: 'atos',
+      atosajustedarc1008549873pedidoemitido5500508154: 'atos',
+      atosajustedarc100854987pedidoemitido5500508154: 'atos',
+      'atos ajuste da rc 100854987/3 pedido emitido 5500508154': 'atos',
+      // M4
+      m4: 'm4',
+      m4po5500509779emitidaem1106: 'm4',
+      'm4 po - 5500509779 - emitida em 11/06': 'm4',
+      // ENGINEERING
       engineering: 'engineering',
       engeering: 'engineering',
       enginnering: 'engineering',
@@ -53,6 +76,7 @@ export async function getFornecedores(req, res) {
       engineeringdo: 'engineering',
       engeeringbrasil: 'engineering',
       engeeringdobrasil: 'engineering',
+      // SITE BLINDADO
       siteblindado: 'siteblindado',
       siteblindadoltda: 'siteblindado',
     };
@@ -66,11 +90,13 @@ export async function getFornecedores(req, res) {
         map[nome] = {
           ...f,
           fornecedor: f.fornecedor,
+          total_horas: f.total_horas || 0,
           detalhes: Array.isArray(f.detalhes) ? [...f.detalhes] : [],
         };
       } else {
         map[nome].total += f.total || 0;
-        map[nome].total_horas += f.total_horas || 0;
+        map[nome].total_horas =
+          (map[nome].total_horas || 0) + (f.total_horas || 0);
         map[nome].detalhes = map[nome].detalhes.concat(
           Array.isArray(f.detalhes) ? f.detalhes : [],
         );
@@ -96,11 +122,34 @@ export async function getFornecedoresHorasCtrl(req, res) {
     const result = await getFornecedoresHoras();
     // Mapa manual de equivalências
     const manualMap = {
+      // HITSS
       hitss: 'hitss',
       hitts: 'hitss',
       globalhitss: 'hitss',
-      ntt: 'nttdata',
+      // NTTDATA
       nttdata: 'nttdata',
+      ntt: 'nttdata',
+      'ntt..': 'nttdata',
+      // MJV
+      mjv: 'mjv',
+      mjvtechnologyinnovation: 'mjv',
+      mjvsolucoemtecnologialtda: 'mjv',
+      mjvtecnologiaeinovacao: 'mjv',
+      mjvsolucoemtecnologia: 'mjv',
+      mjvsolucoesemtecnologialtda: 'mjv',
+      mjvsolucoesemtecnologia: 'mjv',
+      'mjv technology & innovation': 'mjv',
+      'mjv soluções em tecnologia ltda': 'mjv',
+      // ATOS
+      atos: 'atos',
+      atosajustedarc1008549873pedidoemitido5500508154: 'atos',
+      atosajustedarc100854987pedidoemitido5500508154: 'atos',
+      'atos ajuste da rc 100854987/3 pedido emitido 5500508154': 'atos',
+      // M4
+      m4: 'm4',
+      m4po5500509779emitidaem1106: 'm4',
+      'm4 po - 5500509779 - emitida em 11/06': 'm4',
+      // ENGINEERING
       engineering: 'engineering',
       engeering: 'engineering',
       enginnering: 'engineering',
@@ -109,15 +158,9 @@ export async function getFornecedoresHorasCtrl(req, res) {
       engineeringdo: 'engineering',
       engeeringbrasil: 'engineering',
       engeeringdobrasil: 'engineering',
+      // SITE BLINDADO
       siteblindado: 'siteblindado',
       siteblindadoltda: 'siteblindado',
-      sysmap: 'sysmap',
-      spread: 'spread',
-      itshare: 'itshare',
-      engdb: 'engdb',
-      mjv: 'mjv',
-      amdocs: 'amdocs',
-      // Adicione outros casos conforme necessário
     };
     const map = {};
     for (const item of result) {
@@ -139,12 +182,12 @@ export async function getFornecedoresHorasCtrl(req, res) {
         continue;
       if (!item.total_horas || item.total_horas === 0) continue;
       if (!map[nome]) {
-        map[nome] = { fornecedor: item._id, total_horas: item.total_horas };
+        map[nome] = { fornecedor: nome, total_horas: item.total_horas };
       } else {
         map[nome].total_horas += item.total_horas || 0;
       }
     }
-    res.json(Object.values(map));
+    res.json({ data: Object.values(map) });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

@@ -1,56 +1,42 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-// Hook para buscar total de horas por fornecedor
-function useHorasPorFornecedor() {
-  const [horas, setHoras] = useState({});
-  useEffect(() => {
-    const backendUrl =
-      "https://consolidacao-de-fornecedores-7.onrender.com/fornecedores/horas";
-    axios.get(backendUrl).then((res) => {
-      const map = {};
-      (res.data.data || []).forEach((item) => {
-        // Normaliza e agrupa variações
-        let nome = item.fornecedor
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "");
-        nome = nome.replace(/[.,\-\s]/g, "").toLowerCase();
-        const manualMap = {
-          hitss: "hitss",
-          hitts: "hitss",
-          nttdata: "nttdata",
-          "ntt..": "nttdata",
-          ntt: "nttdata",
-        };
-        nome = manualMap[nome] || nome;
-        map[nome] = (map[nome] || 0) + item.total_horas;
-      });
-      setHoras(map);
-    });
-  }, []);
-  return horas;
-}
+// Mapa único para normalização de fornecedores
+const manualMap = {
+  // HITSS
+  hitss: "hitss",
+  hitts: "hitss",
+  globalhitss: "hitss",
+  // NTTDATA
+  nttdata: "nttdata",
+  ntt: "nttdata",
+  "ntt..": "nttdata",
+  // MJV
+  mjv: "mjv",
+  mjvtechnologyinnovation: "mjv",
+  mjvsolucoemtecnologialtda: "mjv",
+  mjvtecnologiaeinovacao: "mjv",
+  mjvsolucoemtecnologia: "mjv",
+  mjvsolucoesemtecnologialtda: "mjv",
+  mjvsolucoesemtecnologia: "mjv",
+  // Variações visuais
+  "mjv technology & innovation": "mjv",
+  "mjv soluções em tecnologia ltda": "mjv",
+  // ATOS
+  atos: "atos",
+  atosajustedarc1008549873pedidoemitido5500508154: "atos",
+  atosajustedarc100854987pedidoemitido5500508154: "atos",
+  "atos ajuste da rc 100854987/3 pedido emitido 5500508154": "atos",
+  // M4
+  m4: "m4",
+  m4po5500509779emitidaem1106: "m4",
+  "m4 po - 5500509779 - emitida em 11/06": "m4",
+  // Adicione outros agrupamentos especiais conforme necessário
+};
 
 function SupplierRow({ s, highlight }) {
   const [open, setOpen] = useState(false);
   const detalhes = Array.isArray(s.detalhes) ? s.detalhes : [];
-  const horasPorFornecedor = useHorasPorFornecedor();
-  // Normaliza o nome do fornecedor para buscar no mapa
-  let nomeFornecedorNormalizado = (s.fornecedor || "")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
-  nomeFornecedorNormalizado = nomeFornecedorNormalizado
-    .replace(/[.,\-\s]/g, "")
-    .toLowerCase();
-  const manualMap = {
-    hitss: "hitss",
-    hitts: "hitss",
-    nttdata: "nttdata",
-    "ntt..": "nttdata",
-    ntt: "nttdata",
-  };
-  nomeFornecedorNormalizado =
-    manualMap[nomeFornecedorNormalizado] || nomeFornecedorNormalizado;
   return (
     <div className="card">
       <div className="supplier-row">
@@ -96,9 +82,7 @@ function SupplierRow({ s, highlight }) {
             }}
           >
             <span style={{ fontWeight: 600, color: "#222", fontSize: 15 }}>
-              {Number(
-                horasPorFornecedor[nomeFornecedorNormalizado] || 0
-              ).toLocaleString("pt-BR", {
+              {Number(s.total_horas || 0).toLocaleString("pt-BR", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
               })}{" "}
@@ -137,7 +121,6 @@ function SupplierRow({ s, highlight }) {
                 <th>Horas</th>
                 <th>H/H</th>
                 <th>Alocação (meses)</th>
-                <th>Classificação</th>
                 <th>Total</th>
               </tr>
             </thead>
@@ -161,7 +144,6 @@ function SupplierRow({ s, highlight }) {
                       : "-"}
                   </td>
                   <td>{d["Alocação (meses)"] ?? d.alocacao_meses ?? "-"}</td>
-                  <td>{d.Classificacao ?? d.classificacao ?? "-"}</td>
                   <td>
                     R${" "}
                     {Number(d.Total ?? d.valor_total ?? 0).toLocaleString(
@@ -187,12 +169,25 @@ function SupplierRow({ s, highlight }) {
 
 export default function ListView({ fornecedores, refresh }) {
   const [q, setQ] = useState("");
+  const [sort, setSort] = useState("nome");
   // Filtro de busca por nome do fornecedor, sem ignorar total zero ou NaN
-  const filtered = fornecedores.filter((f) => {
+  let filtered = fornecedores.filter((f) => {
     const nome = (f.fornecedor || "").toLowerCase();
     if (!nome || nome === "fornecedor") return false;
     return nome.includes(q.toLowerCase());
   });
+
+  // Ordenação
+  filtered = [...filtered];
+  if (sort === "nome") {
+    filtered.sort((a, b) =>
+      (a.fornecedor || "").localeCompare(b.fornecedor || "")
+    );
+  } else if (sort === "valor") {
+    filtered.sort((a, b) => (b.total || 0) - (a.total || 0));
+  } else if (sort === "horas") {
+    filtered.sort((a, b) => (b.total_horas || 0) - (a.total_horas || 0));
+  }
 
   return (
     <div>
@@ -216,6 +211,19 @@ export default function ListView({ fornecedores, refresh }) {
             width: 320,
           }}
         />
+        <select
+          value={sort}
+          onChange={(e) => setSort(e.target.value)}
+          style={{
+            padding: "8px 12px",
+            borderRadius: 8,
+            border: "1px solid #e3e7ee",
+          }}
+        >
+          <option value="nome">Nome</option>
+          <option value="valor">Valor total</option>
+          <option value="horas">Horas</option>
+        </select>
         <div className="muted">{filtered.length} encontrados</div>
       </div>
       {filtered.length === 0 ? (
